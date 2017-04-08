@@ -23,14 +23,14 @@ api.get('/students', function(req, res, next) {
 	.catch(next);
 });
 
-api.get('/:students/:studentId', function({params: {studentId}}, res, next) {
-	const findStudent = Student.findById(studentId);
-	const findCampus = Campus.findAll({
-		where: {
-			studentId:
-		}
-	})
-})
+// api.get('/:students/:studentId', function({params: {studentId}}, res, next) {
+// 	const findStudent = Student.findById(studentId);
+// 	const findCampus = Campus.findAll({
+// 		where: {
+// 			studentId:
+// 		}
+// 	})
+// })
 
 api.get('/campuses', function(req, res, next) {
 	Campus.findAll()

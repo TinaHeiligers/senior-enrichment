@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha **/*.test.js *.test.js",
+    "seed": "node seed",
     "build": "webpack",
     "build-watch": "webpack -w",
     "start": "nodemon server/start.js"
@@ -22,6 +23,7 @@
     "pg": "^6.1.0",
     "pg-hstore": "^2.3.2",
     "pg-native": "^1.10.0",
+    "random-cat": "^1.0.1",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",

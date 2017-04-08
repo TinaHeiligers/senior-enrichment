@@ -1,6 +1,7 @@
 'use strict';
 var Sequelize = require('sequelize')
 var db = require('../index.js')
+var Campus = require('./campus');
 
 
 module.exports = db.define('student', {
@@ -24,6 +25,7 @@ module.exports = db.define('student', {
   },
 }, {
   getterMethods: {
+    //why do I have this here again?
     route: function() {
       return '/student' + this.fullName;
     }
@@ -37,15 +39,15 @@ module.exports = db.define('student', {
         }
       });
     }
-  }, {
+  },
     hooks: {
+      //create a full name from the first name and last name without a space all to lower case
       beforeValidate: function(student) {
         student.fullName = (student.firstName && student.lastName) ?
-            (student.firstName).concat(' ').concat(student.lastName) :
-            student.lastName;
+            (student.firstName.toLowerCase()).concat('').concat(student.lastName.toLowerCase()) :
+            student.lastName.toLowerCase();
           }
-    }
-  }
+    },
   defaultScope: {
     include: [{model: Campus, as: 'campus'}]
   }
