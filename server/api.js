@@ -17,6 +17,21 @@ api.get('/hello', function(req, res, next) {
 	})
 });
 
+api.get('/students', function(req, res, next) {
+	Student.findAll({})
+	.then((foundStudents) => res.json(foundStudents))
+	.catch(next);
+});
+
+api.get('/:students/:studentId', function({params: {studentId}}, res, next) {
+	const findStudent = Student.findById(studentId);
+	const findCampus = Campus.findAll({
+		where: {
+			studentId:
+		}
+	})
+})
+
 api.get('/campuses', function(req, res, next) {
 	Campus.findAll()
 	.then(function(foundCampuses) {
@@ -25,12 +40,6 @@ api.get('/campuses', function(req, res, next) {
 	})
 });
 
-api.get('/students', function(req, res, next) {
-	Student.findAll()
-	.then(function(foundStudents) {
-		console.log(res);
-		res.json(foundStudents);
-	})
-});
+
 
 module.exports = api
