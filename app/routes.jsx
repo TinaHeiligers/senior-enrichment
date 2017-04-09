@@ -39,10 +39,12 @@ const onAppEnter = () => {
 
 const onCampusEnter = function(nextRouterState) {
 	const campusId = nextRouterState.params.campusId;
+	console.log('CAMPUS LOADING...', campusId);
 	store.dispatch(getCampusById(campusId));
 };
 const onStudentEnter = function(nextRouterState) {
 	const studentId = nextRouterState.params.studentId;
+	console.log('STUDENT LOADING...', studentId);
 	store.dispatch(getStudentById(studentId));
 };
 
@@ -50,7 +52,7 @@ export default function Root () {
 	return (
 		<Provider store={store}>
 			<Router history={hashHistory}>
-				<Route path="/campuses" component={App} onEnter={onAppEnter}>
+				<Route path="/" component={App} onEnter={onAppEnter}>
 					<Route path="/campuses" component={CampusesContainer}/>
 					<Route path="/campuses/:campusId" component={CampusContainer} onEnter={onCampusEnter}/>
 					<Route path="/students" component={StudentsContainer}/>
