@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 //********Constants**********//
-const RECEIVE_CAMPUSES = "RECEIVE_CAMPUSES";
-const RECEIVE_CAMPUS = "RECEIVE_CAMPUS";
+export const RECEIVE_CAMPUSES = "RECEIVE_CAMPUSES";
+export const RECEIVE_CAMPUS = "RECEIVE_CAMPUS";
 
 //******action-creators*******//
 export const receiveCampuses = campuses => ({

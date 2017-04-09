@@ -5,12 +5,15 @@ import StudentsContainer from '../containers/StudentsContainer';//will reuse thi
 
 export default function Campus (props) {
 	//get data we need from props passed down by the CampusContainer
-	const campusName = props.campusName;
-	const students = props.students;
+	const campus = props.selectedCampus;
+
 	return (
         <div>
-        	<h3>{ campusName } Campus</h3>
-        	<StudentsContainer students={students} />
+	        <div>
+	        	<h3>{ campus.name }</h3>
+	        	<img src={ campus.image } className="img-thumbnail"/>
+	    	</div>
+        	<StudentsContainer students={campus.students} />
         </div>
     );
 }

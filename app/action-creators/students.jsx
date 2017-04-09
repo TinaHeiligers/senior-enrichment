@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 //********Constants**********//
-const RECEIVE_STUDENTS = "RECEIVE_STUDENTS";
-const RECEIVE_STUDENT = "RECEIVE_STUDENT";
+export const RECEIVE_STUDENTS = "RECEIVE_STUDENTS";
+export const RECEIVE_STUDENT = "RECEIVE_STUDENT";
 
 //******action-creators*******//
 export const receiveStudents = students => ({

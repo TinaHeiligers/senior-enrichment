@@ -9,25 +9,27 @@ import store from './store';
 import App from './components/App'
 
 import CampusesContainer from './containers/CampusesContainer';
-// import CampusContainer from './containers/CampusContainer';
+import CampusContainer from './containers/CampusContainer';
 // import NewCampusContainer from './containers/NewCampusContainer';
-
-// import StudentsContainer from './containers/StudentsContainer';
-// import StudentContainer from './containers/StudentContainer';
+//
+import StudentsContainer from './containers/StudentsContainer';
+import StudentContainer from './containers/StudentContainer';
 // import NewStudentContainer from './containers/NewStudentContainer';
 
 import Campuses from './components/Campuses';
-// import Students from './components/Students';
+import Campus from './components/Campus';
+import Students from './components/Students';
+import Student from './components/Student';
 
 import {receiveCampuses, getCampusById} from './action-creators/campuses';
 import {receiveStudents, getStudentById} from './action-creators/students';
 // import Root from './components/Root'
 
-const onAppEnter = function() {
-	Promise.all([
-        axios.get('/api/campuses'),
-        axios.get('/api/students')
-    ])
+const onAppEnter = () => {
+	const pCampuses = axios.get('/api/campuses');//get all campuses
+	const pStudents = axios.get('/api/students');//get all students
+	return Promise
+	.all([pCampuses, pStudents])
     .then(responses => responses.map(r => r.data))
     .then(([campuses, students]) => {
     	store.dispatch(receiveCampuses(campuses));
@@ -49,12 +51,12 @@ export default function Root () {
 		<Provider store={store}>
 			<Router history={hashHistory}>
 				<Route path="/campuses" component={App} onEnter={onAppEnter}>
-					{/*<Route path="/campuses" component={CampusesContainer}/>
+					<Route path="/campuses" component={CampusesContainer}/>
 					<Route path="/campuses/:campusId" component={CampusContainer} onEnter={onCampusEnter}/>
 					<Route path="/students" component={StudentsContainer}/>
 					<Route path="/students/:studentId" component={StudentContainer} onEnter={onStudentEnter}/>*/}
-						{/*<Route path="campus" component={Campus} />
-						<Route path="student" component={Student} />*/}
+						<Route path="campus" component={Campus} />
+						<Route path="student" component={Student} />
 				</Route>
 				{/*<Route path="/new-campus" component={NewCampusContainer}/>
 				<Route path="/new-student" component={NewStudentContainer}/>*/}

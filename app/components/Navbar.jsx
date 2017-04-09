@@ -8,7 +8,7 @@ export default function Navbar () {
     <nav className="navbar navbar-inverse">
       <div className="container-fluid">
         <div className="navbar-header">
-          <a className="navbar-brand" href="#">MHIAJ</a>
+          <Link className="navbar-brand" href="/campuses">MHIAJ</Link>
         </div>
         <ul className="nav navbar-nav navbar-right">
           <li><Link to='/campuses'>HOME</Link></li>
