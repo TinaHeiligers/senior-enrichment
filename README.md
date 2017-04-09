@@ -57,7 +57,7 @@ Use at least sequelize, express, react, and redux when creating this app. You ca
   * can create a campus: POST to '/campuses'
   * can edit a campus's info: PUT to '/campuses/:campusId' - campus info such as name
   * can edit a campus's student info: including adding/removing a student to/from that campus: PUT '/students/:studentId/' only passing in a campusId
-      from campus goet the campus id, then to remove a student, find
+      from campus to the campus id, then to remove a student
   * can delete a campus
   * can create a student
   * can edit a student's info, including the campus that student is assigned to
