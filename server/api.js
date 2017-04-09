@@ -20,12 +20,18 @@ api.get('/hello', function(req, res, next) {
 
 //STUDENT(S)
 // GET -all, GET-single, POST-single, PUT-single, DELETE-single
+
 api.get('/students', function(req, res, next) {
-	Student.findAll({})
-	.then((foundStudents) => res.json(foundStudents))
+	Student.findAll({
+		include: [Campus]
+	})
+	.then(function(foundStudents) {
+		res.json(foundStudents)
+	})
 	.catch(next);
 });
 
+//in the following route, the campus instance is returned along with the student data.
 api.get('/students/:studentId', function(req, res, next) {
 	Student.findById(req.params.studentId)
 	.then(function(foundStudent) {
@@ -33,6 +39,7 @@ api.get('/students/:studentId', function(req, res, next) {
 	})
 	.catch(next);
 })
+
 //general student modification
 api.put('/students/:studentId', function(req, res, next) {
 	Student.findById(req.params.studentId)
