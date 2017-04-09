@@ -10,7 +10,7 @@ export default function Campuses (props) {
         	<h3>Campuses</h3>
         	<div className="row">
         		{campuses && campuses.map(campus => (
-                    <div className="col-md-4" key={ campus.id }>
+                    <div className="col-xs-4" key={ campus.id }>
                     <Link className="thumbnail" to={`/campuses/${campus.id}`}>
 	                    <img className="img-circle" src={ campus.image }/>
 	                    <div className="caption">
