@@ -9,9 +9,9 @@ export default function Campus (props) {
 
 	return (
         <div>
-	        <div>
+	        <div className="centered">
 	        	<h3>{ campus.name }</h3>
-	        	<img src={ campus.image } className="img-thumbnail"/>
+	        	<img src={ campus.image } className="campus img-thumbnail"/>
 	    	</div>
         	<StudentsContainer students={campus.students} />
         </div>
