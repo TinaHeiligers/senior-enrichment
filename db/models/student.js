@@ -13,7 +13,7 @@ module.exports = db.define('student', {
     type: Sequelize.STRING,
     allowNul: false
   },
-  fullname: {
+  fullName: {
     type: Sequelize.STRING,
     allowNul: false
   },
@@ -27,7 +27,7 @@ module.exports = db.define('student', {
   getterMethods: {
     //why do I have this here again?
     route: function() {
-      return '/student' + this.fullName;
+      return '/api/students/' + this.fullName;
     }
   },
   classMethods: {
@@ -45,7 +45,7 @@ module.exports = db.define('student', {
       beforeValidate: function(student) {
         student.fullName = (student.firstName && student.lastName) ?
             (student.firstName.toLowerCase()).concat('').concat(student.lastName.toLowerCase()) :
-            student.lastName.toLowerCase();
+            'noname';
           }
     },
   defaultScope: {

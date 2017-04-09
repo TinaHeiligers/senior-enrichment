@@ -11,10 +11,27 @@ var urlOfCity = randomCat.get({
   category: 'city'
 });
 
+function getCityImage() {
+  return randomCat.get({
+    width: 500,
+    height: 500,
+    category: 'city',
+    imageIndex: Math.floor(Math.random() * 10)
+  });
+}
+
+function deleteCampuses() {
+  return Campus.destroy({where: {}})
+}
+function deleteStudents() {
+  return Student.destroy({where: {}})
+}
 
 function seed() {
-  //1. getRandomStudent, getRandomCampus
-  return createCampuses()
+  //1. delete first, then create
+  return deleteCampuses()
+  .then(deleteStudents)
+  .then(createCampuses)
   .then(createStudents(20))
 }
 
@@ -22,15 +39,18 @@ function seed() {
 if (module === require.main) {
   db.sync({force:false})
   .then(seed)
-  .then(Stuff => {
+  .then(stuff => {
     console.log(`seeded ${stuff.length} rows`)
   })
   //May cause errors, without it, we hang for a few seconds
-  .finally(() => db.close())
+  // .finally(() => db.close())
 }
 
 function createCampuses() {
-  const arrayOfCampusPromises = CAMPUSES.map(name => Campus.create({name}))
+  const arrayOfCampusPromises = CAMPUSES.map(name => Campus.create({
+    name: name,
+    image: getCityImage()
+  }))
   , promiseOfCampusArray = Promise.all(arrayOfCampusPromises)
   return promiseOfCampusArray
 }
@@ -47,19 +67,17 @@ function createStudents(count) {
 
 function createStudent(campuses, maxCampusesPerStudent=1) {
   //this might trip me up because I have three objects in each student info array
-  const name = getRandom(STUDENT_INFO)
-        , promiseOfAStudent =
-          Promise.props({name})
-            .then(info => Student.create(info))
-              .then(actualStudent => {
-                  let numCampuses = Math.max (Math.round(Math.random() * maxCampusesPerStudent), 1), associationPromises = []
-                  while (--numCampuses >= 0) {
-                    const campus = getRandom(campus)
-                    associationPromises.push(actualStudent.addCampus(campus))
-                }
-              return associationPromises
-          })
-  return promiseOfAStudent
+  const info = getRandom(STUDENT_INFO)
+    return Student.create({
+        firstName: info[0],
+        lastName: info[1],
+        fullName: info[2],
+        email: info[3]
+      })
+      .then(actualStudent => {
+        const campus = getRandom(campuses)
+        return (actualStudent.setCampus(campus.id))
+    })
 }
 
 function getRandom(set) {
