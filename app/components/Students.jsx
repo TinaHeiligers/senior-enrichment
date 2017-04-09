@@ -7,10 +7,9 @@ export default function Students (props) {
        <table className='table'>
 	       <thead>
 	       	<tr>
-	       		<th></th>
-	       		<th>FirstName</th>
-	       		<th>LastName</th>
-	       		<th>Campus</th>
+	       		<th><h4>FirstName</h4></th>
+	       		<th><h4>LastName</h4></th>
+	       		<th><h4>Campus</h4></th>
 	       	</tr>
 	       </thead>
 	       <tbody>
