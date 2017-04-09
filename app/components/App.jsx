@@ -1,20 +1,18 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
 
 //import navbaar component
-import NavbarContainer from '../containers/NavbarContainer';
+import Navbar from '../components/Navbar';
 //import actions and action creators
-import store from '../store.jsx';
 
 export default function App ({ children }) {
   return (
     <div id="main" className="container-fluid">
-      <div className="nav navbar-nav">
-        <NavbarContainer />
+      <div className="col-xs-12 navbar">
+        <Navbar />
       </div>
-      {/*<div className="col-xs-10">
-              { children }
-            </div>*/}
+      <div className="col-xs-2">
+        { children }
+      </div>
     </div>
   );
 }
