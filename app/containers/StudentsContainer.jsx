@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import Students from '../components/Students';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
 	return {
-		students: ownProps.students
+		students: state.students.list
 	};
 };
 

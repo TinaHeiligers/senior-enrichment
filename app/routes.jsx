@@ -26,8 +26,11 @@ import {receiveStudents, getStudentById} from './action-creators/students';
 // import Root from './components/Root'
 
 const onAppEnter = () => {
+	console.log('APP LOADING...');
+
 	const pCampuses = axios.get('/api/campuses');//get all campuses
 	const pStudents = axios.get('/api/students');//get all students
+
 	return Promise
 	.all([pCampuses, pStudents])
     .then(responses => responses.map(r => r.data))
@@ -59,10 +62,11 @@ export default function Root () {
 					<Route path="/students/:studentId" component={StudentContainer} onEnter={onStudentEnter}/>*/}
 						<Route path="campus" component={Campus} />
 						<Route path="student" component={Student} />
+					<IndexRedirect to="/campuses"/>
 				</Route>
 				{/*<Route path="/new-campus" component={NewCampusContainer}/>
 				<Route path="/new-student" component={NewStudentContainer}/>*/}
-			<IndexRoute to="/campuses"/>
+
 			</Router>
 		</Provider>
 		)
