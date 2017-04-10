@@ -34,7 +34,7 @@ export const removeStudent = (studentId) => {
       .then(student => {
         const selectedCampus = getState().campuses.selected;
         const students = selectedCampus.students;
-        const newStudents = students.filter(s => { s.id != studentId }); // filter out the removed student
+        const newStudents = students.filter(s => { return s.id != studentId }); // filter out the removed student
         const newSelectedCampus = Object.assign({}, selectedCampus, {
           students: newStudents
         });

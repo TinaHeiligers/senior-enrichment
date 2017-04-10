@@ -18,7 +18,6 @@ export default function (state = initialCampusesState, action) {
       break;
 
     case RECEIVE_CAMPUS:
-      console.log('--------->', action)
       newState.selected = action.campus;
       break;
 
