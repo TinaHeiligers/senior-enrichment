@@ -23,3 +23,12 @@ export const getCampusById = campusId => {
 		});
 	};
 };
+//wrote this to get a list of students for the ccurrent campus
+// export const getStudentsForCampusById = campusId => {
+// 	return dispatch => {
+// 		axios.get(`api/campuses/${campusId}/students`)//need an api route for this
+// 		.then(response => {
+// 			dispatch(receiveCampusStudents(response.data));
+// 		});
+// 	};
+// };

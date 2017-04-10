@@ -51,6 +51,11 @@ const onStudentEnter = function(nextRouterState) {
 	store.dispatch(getStudentById(studentId));
 };
 
+// const onCampusStudentsEnter = function(nextRouterState) {
+// 	const campusId = nextRouterState.params.campusId;
+// 	store.dispatch(getStudentsForCampusById(campusId));
+// }
+
 export default function Root () {
 	return (
 		<Provider store={store}>
@@ -58,6 +63,8 @@ export default function Root () {
 				<Route path="/" component={App} onEnter={onAppEnter}>
 					<Route path="/campuses" component={CampusesContainer}/>
 					<Route path="/campuses/:campusId" component={CampusContainer} onEnter={onCampusEnter}/>
+						{/*<Route path="/campuses/:campusId/students" component={
+							CampusStudentsContainer} onEnter={onCampusStudentsEnter}/>*/}
 					<Route path="/students" component={StudentsContainer}/>
 					<Route path="/students/:studentId" component={StudentContainer} onEnter={onStudentEnter}/>*/}
 						<Route path="campus" component={Campus} />
