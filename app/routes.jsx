@@ -22,9 +22,7 @@ import Students from './components/Students';
 import Student from './components/Student';
 
 import {receiveCampuses, getCampusById} from './action-creators/campuses';
-// import {receiveCampuses, getCampusById, getStudentsForCampusById} from './action-creators/campuses';
 import {receiveStudents, getStudentById} from './action-creators/students';
-// import Root from './components/Root'
 
 const onAppEnter = () => {
 	console.log('APP LOADING...');
@@ -45,10 +43,6 @@ const onCampusEnter = function(nextRouterState) {
 	const campusId = nextRouterState.params.campusId;
 	console.log('CAMPUS LOADING...', campusId);
 	store.dispatch(getCampusById(campusId));
-	//need to dispatch another method here for getting the students for the campus
-	// console.log('CAMPUS LOADING TRYING TO GET STUDENTS LIST for campusId', campusId);
-	// store.dispatch(getStudentsForCampusById(campusId));
-
 };
 const onStudentEnter = function(nextRouterState) {
 	const studentId = nextRouterState.params.studentId;

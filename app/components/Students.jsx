@@ -2,8 +2,6 @@ import React from 'react';
 
 export default function Students (props) {
 	const students = props.students;
-	//somehow I need to include the campus for each student here but this should come from the axios request and should be accessible via student.campus.name if there is a campusId for the student
-	//I need conditional rendering out here for when to show all students for all campuses and when to render out students for only a single campus
 	return(
        <table className='table'>
 	       <thead>

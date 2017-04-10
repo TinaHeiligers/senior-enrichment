@@ -20,14 +20,9 @@ export default function (state = initialCampusesState, action) {
 			break;
 
 		case RECEIVE_CAMPUS:
-			//do I need a utility function to grab the students for the campus here?
 			newState.currentStudentList = action.students;
 			newState.selected = action.campus;
 			break;
-
-		// case RECEIVE_CAMPUS_STUDENTS:
-		// //grab the students
-		// newState.currentStudentList = action.students;
 
 		default:
 			return state;

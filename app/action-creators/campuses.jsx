@@ -18,14 +18,6 @@ export const receiveCampus = (campus, students) => ({
 	students
 });
 
-//function that takes in a campus and students
-// export const receiveCampusStudents = (campus, students) => ({
-// 	type: RECEIVE_CAMPUS_STUDENTS,
-// 	campus,
-// 	students
-// });
-
-
 export const getCampusById = campusId => {
 	//get campus by id, get students for campus by campusId
 	return dispatch => {
@@ -40,13 +32,3 @@ export const getCampusById = campusId => {
 		});
 	};
 };
-
-//wrote this to get a list of students for the ccurrent campus
-// export const getStudentsForCampusById = campusId => {
-// 	return dispatch => {
-// 		axios.get(`api/campuses/${campusId}/students`)//now have an api route for this
-// 		.then(response => {
-// 			dispatch(receiveCampusStudents(response.data));
-// 		});
-// 	};
-// };
