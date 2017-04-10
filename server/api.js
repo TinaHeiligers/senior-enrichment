@@ -31,21 +31,29 @@ api.get('/students', function(req, res, next) {
 	.catch(next);
 });
 
+api.param('studentId', (req, res, next, id) => {
+  Student.findById(id)
+  .then(student => {
+    if (!student) {
+      const err = Error('Student not found');
+      err.status = 404;
+      throw err
+    }
+    req.student = student;
+    next();
+    return null; // silences bluebird warning about promises inside of next
+  })
+  .catch(next);
+});
+
 //in the following route, the campus instance is returned along with the student data.
 api.get('/students/:studentId', function(req, res, next) {
-	Student.findById(req.params.studentId)
-	.then(function(foundStudent) {
-		res.json(foundStudent)
-	})
-	.catch(next);
-})
+	res.json(req.student);
+});
 
 //general student modification
 api.put('/students/:studentId', function(req, res, next) {
-	Student.findById(req.params.studentId)
-	.then(function(foundStudent) {
-		return foundStudent.update(req.body)
-	})
+	req.student.update(req.body)
 	.then(function(updatedStudent) {
 		res.json(updatedStudent)
 	})
@@ -78,7 +86,7 @@ api.get('/campuses', function(req, res, next) {
 });
 
 api.get('/campuses/:campusId', function(req, res, next) {
-	Campus.findById(req.params.campusId)
+	Campus.scope('populated').findById(req.params.campusId)
 	.then(function(foundCampus) {
 		res.json(foundCampus)
 	})

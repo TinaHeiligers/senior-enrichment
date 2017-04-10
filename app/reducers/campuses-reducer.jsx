@@ -1,30 +1,29 @@
 import {
-	RECEIVE_CAMPUSES,
-	RECEIVE_CAMPUS,
+  RECEIVE_CAMPUSES,
+  RECEIVE_CAMPUS,
 } from '../action-creators/campuses';
 
 const initialCampusesState = {
-	selected: {},
-	list: [],
-	currentStudentList: []
+  selected: {},
+  list: []
 };
 
 export default function (state = initialCampusesState, action) {
-	const newState = Object.assign({}, state);
+  const newState = Object.assign({}, state);
 
-	switch (action.type) {
+  switch (action.type) {
 
-		case RECEIVE_CAMPUSES:
-			newState.list = action.campuses;
-			break;
+    case RECEIVE_CAMPUSES:
+      newState.list = action.campuses;
+      break;
 
-		case RECEIVE_CAMPUS:
-			newState.currentStudentList = action.students;
-			newState.selected = action.campus;
-			break;
+    case RECEIVE_CAMPUS:
+      console.log('--------->', action)
+      newState.selected = action.campus;
+      break;
 
-		default:
-			return state;
-	}
-	 return newState;
+    default:
+      return state;
+  }
+  return newState;
 }

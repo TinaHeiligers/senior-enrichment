@@ -1,20 +1,18 @@
 import Campus from '../components/Campus';
 import { connect } from 'react-redux';
+import {removeStudent} from '../action-creators/campuses';
 
 const mapStateToProps = (state) => {
 	return {
 		selectedCampus: state.campuses.selected,
-		selectedCampusStudents: state.campuses.currentStudentList
+		selectedCampusStudents: state.campuses.selected.students || []
 	};
 };
 
 const mapDispatchToProps = (dispatch) => {
 	return {
 		removeOne (student) {
-			console.log('IN campusContainer, removeOne, about to dispatch removeStudent(student), where student = ', student.id, student.campusId);
-			const studentId = student.id
-			//passing in the studentId here to the removeStudent method
-			dispatch(removeStudent(student.id));//working on this function in campuses action-creators
+			dispatch(removeStudent(student.id));
 		}
 	}
 }

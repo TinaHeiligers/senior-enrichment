@@ -7,45 +7,38 @@ export const RECEIVE_CAMPUS = "RECEIVE_CAMPUS";
 //******action-creators*******//
 //api call for receiveCampuses is onEnter for main app in routes.jsx file
 export const receiveCampuses = campuses => ({
-	type: RECEIVE_CAMPUSES,
-	campuses
+  type: RECEIVE_CAMPUSES,
+  campuses
 });
 
-export const receiveCampus = (campus, students) => ({
-	type: RECEIVE_CAMPUS,
-	campus,
-	students
+export const receiveCampus = (campus) => ({
+  type: RECEIVE_CAMPUS,
+  campus
 });
 
 export const getCampusById = campusId => {
-	//get campus by id, get students for campus by campusId
-	return dispatch => {
-		Promise.all([
-	        axios.get(`api/campuses/${campusId}`),
-	        axios.get(`api/campuses/${campusId}/students`)//now have an api route
-        ])
-        .then(results => results.map(r => r.data))
-		.then(results => {
-			console.log(results);
-			dispatch(receiveCampus(...results));
-		});
-	};
+  return dispatch => {
+    axios.get(`api/campuses/${campusId}`)
+    .then(res => res.data)
+    .then(campus => {
+      dispatch(receiveCampus(campus));
+    });
+  };
 };
 
-export const removeOne = (studentId, campus) => {
-	return dispatch => {
-		//need a put request to remove the campusId from the current student
-		//I assume I pass in the reqeust body to the put request along with the studentId
-		return axios.put(`/api/students/${studentId}`, {campusId: null})
-		console.log('*********IN REMOVESTUDENT ACTION-CREATOR*******')
-		.then(res => res.data)//if I get anything back, which I don't think I do
-		.then(response => {
-			//now get a new updated list of students for the campus
-			const newListOfStudents = getState().students;
-			dispatch(receiveCampus(campus, newListOfStudents))
-		});
-		// .then(list => {
-
-		};
-	// };
+export const removeStudent = (studentId) => {
+  return (dispatch, getState) => {
+    // request to remove the campusId from the current student
+    return axios.put(`/api/students/${studentId}`, { campusId: null })
+      .then(res => res.data)
+      .then(student => {
+        const selectedCampus = getState().campuses.selected;
+        const students = selectedCampus.students;
+        const newStudents = students.filter(s => { s.id != studentId }); // filter out the removed student
+        const newSelectedCampus = Object.assign({}, selectedCampus, {
+          students: newStudents
+        });
+        dispatch(receiveCampus(newSelectedCampus));
+      })
+  };
 };

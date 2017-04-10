@@ -33,7 +33,7 @@ export default function Campus (props, state) {
 		        		<td>{student.lastName}</td>
 		        		<td>
 		        			<button className="btn btn-danger" onClick={() => remove(student, students)}>
-			        		<span>X</span></button>
+			        		<span>&times;</span></button>
 		        		</td>
 		        		</tr>)) : `No students assigned to ${campus.name} yet.`
 			        }

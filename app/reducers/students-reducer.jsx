@@ -19,7 +19,7 @@ export default function (state = initialStudentsState, action) {
 
 		case RECEIVE_STUDENT:
 			newState.selected = action.student;
-			breal;
+			break;
 
 		default:
 			return state;

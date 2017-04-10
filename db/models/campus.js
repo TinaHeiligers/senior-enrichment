@@ -11,5 +11,13 @@ module.exports = db.define('campus', {
   image: {
   	type: Sequelize.STRING
   }
+}, {
+  scopes: {
+    populated: () => ({ // function form lets us refer to undefined models
+      include: [{
+        model: db.model('student')
+      }]
+    })
+  }
 });
 
