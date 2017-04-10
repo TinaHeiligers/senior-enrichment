@@ -85,6 +85,19 @@ api.get('/campuses/:campusId', function(req, res, next) {
 	.catch(next);
 })
 
+//GET route to return all students for a campus
+api.get('/campuses/:campusId/students', function(req, res, next) {
+	Student.findAll({
+		where: {
+			campusId: req.params.campusId
+		}
+	})
+	.then(function(foundStudents) {
+		console.log(foundStudents);
+		res.json(foundStudents)
+	})
+	.catch(next);
+})
 //POST NEW
 api.post('/campuses', function(req, res, next) {
 	return Campus.create(req.body)

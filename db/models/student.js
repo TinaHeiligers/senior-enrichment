@@ -32,7 +32,7 @@ module.exports = db.define('student', {
   },
   classMethods: {
     //need a method to return all students from the same campus:
-    findByCampus: function(campus) {
+    findByCampus: function(campusId) {
       return this.findAll({
         where: {
           campusId: this.campusId//the campusId's match
