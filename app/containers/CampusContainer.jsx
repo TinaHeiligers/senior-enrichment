@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => {
 	return {
-		selectedCampus: state.campuses.selected
+		selectedCampus: state.campuses.selected,
+		selectedCampusStudents: state.campuses.currentStudentList
 	};
 };
 

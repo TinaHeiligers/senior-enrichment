@@ -93,7 +93,7 @@ api.get('/campuses/:campusId/students', function(req, res, next) {
 		}
 	})
 	.then(function(foundStudents) {
-		console.log(foundStudents);
+		// console.log(foundStudents);
 		res.json(foundStudents)
 	})
 	.catch(next);

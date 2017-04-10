@@ -31,7 +31,7 @@ module.exports = db.define('student', {
     }
   },
   classMethods: {
-    //need a method to return all students from the same campus:
+    //need a method to return all students from the same campus: not working, wrote the route itself
     findByCampus: function(campusId) {
       return this.findAll({
         where: {

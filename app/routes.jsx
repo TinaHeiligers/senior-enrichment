@@ -22,6 +22,7 @@ import Students from './components/Students';
 import Student from './components/Student';
 
 import {receiveCampuses, getCampusById} from './action-creators/campuses';
+// import {receiveCampuses, getCampusById, getStudentsForCampusById} from './action-creators/campuses';
 import {receiveStudents, getStudentById} from './action-creators/students';
 // import Root from './components/Root'
 
@@ -44,6 +45,10 @@ const onCampusEnter = function(nextRouterState) {
 	const campusId = nextRouterState.params.campusId;
 	console.log('CAMPUS LOADING...', campusId);
 	store.dispatch(getCampusById(campusId));
+	//need to dispatch another method here for getting the students for the campus
+	// console.log('CAMPUS LOADING TRYING TO GET STUDENTS LIST for campusId', campusId);
+	// store.dispatch(getStudentsForCampusById(campusId));
+
 };
 const onStudentEnter = function(nextRouterState) {
 	const studentId = nextRouterState.params.studentId;
@@ -51,10 +56,6 @@ const onStudentEnter = function(nextRouterState) {
 	store.dispatch(getStudentById(studentId));
 };
 
-// const onCampusStudentsEnter = function(nextRouterState) {
-// 	const campusId = nextRouterState.params.campusId;
-// 	store.dispatch(getStudentsForCampusById(campusId));
-// }
 
 export default function Root () {
 	return (
@@ -63,8 +64,6 @@ export default function Root () {
 				<Route path="/" component={App} onEnter={onAppEnter}>
 					<Route path="/campuses" component={CampusesContainer}/>
 					<Route path="/campuses/:campusId" component={CampusContainer} onEnter={onCampusEnter}/>
-						{/*<Route path="/campuses/:campusId/students" component={
-							CampusStudentsContainer} onEnter={onCampusStudentsEnter}/>*/}
 					<Route path="/students" component={StudentsContainer}/>
 					<Route path="/students/:studentId" component={StudentContainer} onEnter={onStudentEnter}/>*/}
 						<Route path="campus" component={Campus} />

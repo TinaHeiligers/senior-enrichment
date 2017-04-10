@@ -1,11 +1,13 @@
 import {
 	RECEIVE_CAMPUSES,
-	RECEIVE_CAMPUS
+	RECEIVE_CAMPUS,
+	RECEIVE_CAMPUS_STUDENTS
 } from '../action-creators/campuses';
 
 const initialCampusesState = {
 	selected: {},
-	list: []
+	list: [],
+	currentStudentList: []
 };
 
 export default function (state = initialCampusesState, action) {
@@ -18,8 +20,14 @@ export default function (state = initialCampusesState, action) {
 			break;
 
 		case RECEIVE_CAMPUS:
+			//do I need a utility function to grab the students for the campus here?
+			newState.currentStudentList = action.students;
 			newState.selected = action.campus;
 			break;
+
+		// case RECEIVE_CAMPUS_STUDENTS:
+		// //grab the students
+		// newState.currentStudentList = action.students;
 
 		default:
 			return state;
