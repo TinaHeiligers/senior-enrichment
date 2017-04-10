@@ -1,7 +1,6 @@
 import {
 	RECEIVE_CAMPUSES,
 	RECEIVE_CAMPUS,
-	RECEIVE_CAMPUS_STUDENTS
 } from '../action-creators/campuses';
 
 const initialCampusesState = {

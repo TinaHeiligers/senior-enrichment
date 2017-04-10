@@ -21,7 +21,7 @@ import Campus from './components/Campus';
 import Students from './components/Students';
 import Student from './components/Student';
 
-import {receiveCampuses, getCampusById} from './action-creators/campuses';
+import {receiveCampuses, getCampusById, removeOne} from './action-creators/campuses';
 import {receiveStudents, getStudentById} from './action-creators/students';
 
 const onAppEnter = () => {

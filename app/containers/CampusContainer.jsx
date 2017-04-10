@@ -8,6 +8,20 @@ const mapStateToProps = (state) => {
 	};
 };
 
-const CampusContainer = connect(mapStateToProps)(Campus);
+const mapDispatchToProps = (dispatch) => {
+	return {
+		removeOne (student) {
+			console.log('IN campusContainer, removeOne, about to dispatch removeStudent(student), where student = ', student.id, student.campusId);
+			const studentId = student.id
+			//passing in the studentId here to the removeStudent method
+			dispatch(removeStudent(student.id));//working on this function in campuses action-creators
+		}
+	}
+}
+
+const CampusContainer = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Campus);
 
 export default CampusContainer;

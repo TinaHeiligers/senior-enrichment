@@ -3,7 +3,6 @@ import axios from 'axios';
 //********Constants**********//
 export const RECEIVE_CAMPUSES = "RECEIVE_CAMPUSES";
 export const RECEIVE_CAMPUS = "RECEIVE_CAMPUS";
-// export const RECEIVE_CAMPUS_STUDENTS = "RECEIVE_CAMPUS_STUDENTS";
 
 //******action-creators*******//
 //api call for receiveCampuses is onEnter for main app in routes.jsx file
@@ -31,4 +30,22 @@ export const getCampusById = campusId => {
 			dispatch(receiveCampus(...results));
 		});
 	};
+};
+
+export const removeOne = (studentId, campus) => {
+	return dispatch => {
+		//need a put request to remove the campusId from the current student
+		//I assume I pass in the reqeust body to the put request along with the studentId
+		return axios.put(`/api/students/${studentId}`, {campusId: null})
+		console.log('*********IN REMOVESTUDENT ACTION-CREATOR*******')
+		.then(res => res.data)//if I get anything back, which I don't think I do
+		.then(response => {
+			//now get a new updated list of students for the campus
+			const newListOfStudents = getState().students;
+			dispatch(receiveCampus(campus, newListOfStudents))
+		});
+		// .then(list => {
+
+		};
+	// };
 };

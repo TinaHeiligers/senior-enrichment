@@ -8,7 +8,8 @@ export default function Campus (props, state) {
 	//get a list of students for the CURRENT campus here
 	const campus = props.selectedCampus;
 	const students = props.selectedCampusStudents;
-	console.log("IN CAMPUS COMPONTENT: props.selectedCampusStudents", props.selectedCampusStudents);
+	const remove = props.removeOne;
+	console.log("IN CAMPUS COMPONTENT: props.removeOne", props.removeOne);
 
 	return (
         <div>
@@ -30,6 +31,10 @@ export default function Campus (props, state) {
 		        		<tr key={student.id}>
 		        		<td>{student.firstName}</td>
 		        		<td>{student.lastName}</td>
+		        		<td>
+		        			<button className="btn btn-danger" onClick={() => remove(student, students)}>
+			        		<span>X</span></button>
+		        		</td>
 		        		</tr>)) : `No students assigned to ${campus.name} yet.`
 			        }
 			        </tbody>
