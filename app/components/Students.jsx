@@ -8,9 +8,9 @@ export default function Students (props) {
        <table className='table'>
 	       <thead>
 	       	<tr>
-	       		<th><h4>FirstName</h4></th>
-	       		<th><h4>LastName</h4></th>
-	       		<th><h4>Campus</h4></th>
+	       		<th><h3>FirstName</h3></th>
+	       		<th><h3>LastName</h3></th>
+	       		<th><h3>Campus</h3></th>
 	       	</tr>
 	       </thead>
 	       <tbody>

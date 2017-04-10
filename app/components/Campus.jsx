@@ -14,15 +14,27 @@ export default function Campus (props, state) {
 	return (
         <div>
 	        <div className="centered">
-	        	<h3>{ campus.name }</h3>
+	        	<h2>{ campus.name }</h2>
+	        	<h4>{`Number of Students: ${students.length}`}</h4>
 	        	<img src={ campus.image } className="campus img-thumbnail"/>
-	        	<p>STUDENTS</p>
-	        	{students ? students.map(student => (
-	        		<tr key={student.id}>
-	        		<td>{student.firstName}</td>
-	        		</tr>)) : `No students assigned to ${campus.name} yet.`
-	        }
-	    	</div>
+        	</div>
+	        	<h2>Students:</h2>
+	        	<table className='table'>{/*If there's time, render the table conditionally if there are students for a campus*/}
+		        	<thead>
+		        	<tr>
+		        		<th><h3>First Name</h3></th>
+		        		<th><h3>Last Name</h3></th>
+	        		</tr>
+		        	</thead>
+		        	<tbody>
+		        	{students ? students.map(student => (
+		        		<tr key={student.id}>
+		        		<td>{student.firstName}</td>
+		        		<td>{student.lastName}</td>
+		        		</tr>)) : `No students assigned to ${campus.name} yet.`
+			        }
+			        </tbody>
+		        </table>
         </div>
     );
 }
