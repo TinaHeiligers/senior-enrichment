@@ -1,8 +1,10 @@
 import axios from 'axios';
+import {hashHistory} from 'react-router';
 
 //********Constants**********//
 export const RECEIVE_STUDENTS = "RECEIVE_STUDENTS";
 export const RECEIVE_STUDENT = "RECEIVE_STUDENT";
+export const ADD_STUDENT = "ADD_STUDENT";
 
 //******action-creators*******//
 export const receiveStudents = students => ({
@@ -15,7 +17,7 @@ export const receiveStudent = (student) => ({
 	student
 });
 
-//when I get a student by Id I recieve info about the campus the student belongs to
+//when I get a student by Id I receive info about the campus the student belongs to
 export const getStudentById = studentId => {
 	return dispatch => {
 		axios.get(`api/students/${studentId}`)
@@ -25,22 +27,21 @@ export const getStudentById = studentId => {
 	};
 };
 
-//results from api call:
-//{
-//   "route": "/api/students/dorthalittel",
-//   "id": 121,
-//   "firstName": "Dortha",
-//   "lastName": "Littel",
-//   "fullName": "dorthalittel",
-//   "email": "Dortha_Littel@hotmail.com",
-//   "createdAt": "2017-04-09T00:42:02.749Z",
-//   "updatedAt": "2017-04-09T00:42:02.792Z",
-//   "campusId": 147,
-//   "campus": {
-//     "id": 147,
-//     "name": "Skokulea",
-//     "image": "http://lorempixel.com/500/500/city/7",
-//     "createdAt": "2017-04-09T00:42:02.682Z",
-//     "updatedAt": "2017-04-09T00:42:02.682Z"
-//   }
-// }
+//action creator for adding a student
+//payload, i.e. req.body will have the student first name, last name and email captured from the form, the hook on the model should update the student's fullname
+//TODO: update hook to remove all spaces and concatenate first and last name
+export const addNewStudent = (studentFirstName, studentLastName, studentEmail) => {
+  return (dispatch, getState) => {
+    //async call to post a new student
+    return axios.post(`/api/students`, { firstName: studentFirstName, lastName: studentLastName, email: studentEmail })
+      .then(res => res.data)
+      .then(newStudent => {
+        //create a new student list by concatenating the old one with the newly added student
+        const newListOfStudents = getState().students.list.concat([newStudent]);
+        //now dispatch receiving the students
+        dispatch(receiveStudents(newListOfStudents));
+        //rerender the list of students
+        hashHistory.push(`/students/${newStudent.id}`);
+      });
+  };
+};

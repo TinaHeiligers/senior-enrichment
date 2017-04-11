@@ -44,8 +44,6 @@ class NewCampusContainer extends Component {
 
   handleSubmit (evt) {
     evt.preventDefault();//preventing bubling up
-    console.log('***********name*******', this.state.name)
-    console.log('***********image*******', this.state.image)
     this.props.addNewCampus(this.state.name, this.state.image);//submit new items to props
     //resetting the form fields after submission
     this.setState({

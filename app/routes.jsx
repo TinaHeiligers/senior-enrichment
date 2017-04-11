@@ -14,7 +14,7 @@ import NewCampusContainer from './containers/NewCampusContainer';
 
 import StudentsContainer from './containers/StudentsContainer';
 import StudentContainer from './containers/StudentContainer';
-// import NewStudentContainer from './containers/NewStudentContainer';
+import NewStudentContainer from './containers/NewStudentContainer';
 
 import Campuses from './components/Campuses';
 import Campus from './components/Campus';
@@ -22,6 +22,7 @@ import NewCampus from './components/NewCampus';
 
 import Students from './components/Students';
 import Student from './components/Student';
+import NewStudent from './components/NewStudent';
 
 import {receiveCampuses, getCampusById} from './action-creators/campuses';
 import {receiveStudents, getStudentById} from './action-creators/students';
@@ -54,17 +55,16 @@ export default function Root () {
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path="/" component={App} onEnter={onAppEnter}>
-          <Route path="/campuses" component={CampusesContainer}/>
-          <Route path="/campuses/:campusId" component={CampusContainer} onEnter={onCampusEnter}/>
-          <Route path="/students" component={StudentsContainer}/>
-          <Route path="/students/:studentId" component={StudentContainer} onEnter={onStudentEnter}/>*/}
-            <Route path="campus" component={Campus} />
-            <Route path="student" component={Student} />
+          <Route path="/campuses" component={CampusesContainer} />
+          <Route path="/campuses/:campusId" component={CampusContainer} onEnter={onCampusEnter} />
+          <Route path="/students" component={StudentsContainer} />
+          <Route path="/students/:studentId" component={StudentContainer} onEnter={onStudentEnter} />
+            {/*<Route path="campus" component={Campus} />*/}
+            {/*<Route path="student" component={Student} />*/}
           <IndexRedirect to="/campuses"/>
         </Route>
-        <Route path="/new-campus" component={NewCampusContainer}/>
-        {/*<Route path="/new-student" component={NewStudentContainer}/>*/}
-
+        <Route path="/new-campus" component={NewCampusContainer} />
+        <Route path="/new-student" component={NewStudentContainer} />
       </Router>
     </Provider>
     )
