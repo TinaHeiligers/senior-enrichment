@@ -38,30 +38,33 @@ Use at least sequelize, express, react, and redux when creating this app. You ca
 - Navigation: as a user I...
 //REACT STUFF
   - DONE * will land on **Home** by default
-  TODO * can navigate to **Campuses** from **Home**
+  - DONE * can navigate to **Campuses** from **Home**
   - DONE * can navigate to **Students** from **Home**
   - DONE * can navigate to view a **Single Campus** from **Campuses**
-  TODO * can navigate to view a **Single Student** from **Students**
-  TODO * can navigate to view a **Single Student** from **Campuses** (for any student at that campus)
-  TODO * can navigate to view that student's **Single Campus** from **Single Student**
+  - DONE * can navigate to view a **Single Student** from **Students**
+  - DONE * can navigate to view a **Single Student** from **Campuses** (for any student at that campus)
+  - DONE * can navigate to view that student's **Single Campus** from **Single Student**
 
 - Views: as a user I...
 //REACT
   - DONE * see a list of all campuses on the **Campuses** view
   - DONE * see a list of all students on the **Students** view
   - DONE * see details about a campus on the **Single Campus** view, including that campus's students
-  TODO * see details about a student on the **Single Student** view, including that student's campus
+  - DONE * see details about a student on the **Single Student** view, including that student's campus
 
 - Actions: as a user I...
 //API ROUTES and actions that should be performed
   - DONE * can create a campus: POST to '/campuses'
-  - DONE * can edit a campus's info: PUT to '/campuses/:campusId' - campus info such as name
-  - DONE * can edit a campus's student info: including adding/removing a student to/from that campus: PUT '/students/:studentId/' only passing in a campusId
-      from campus to the campus id, then to remove a student
-  TODO * can delete a campus
+  - DONE * can edit a campus's student info: removing a student from that campus: PUT '/students/:studentId/' only passing in a campusId from campus to the campus id, then to remove a student
+  - DONE * can edit a campus's student info: adding a student to that campus: PUT '/students/:studentId/' only passing in a campusId
+      from campus to the campus id, then to adding the student
   - DONE * can create a student
+
+  TODO * can edit a campus's info: PUT to '/campuses/:campusId' - campus info such as name
   TODO * can edit a student's info, including the campus that student is assigned to
   TODO * can delete a student
+  TODO * can delete a campus
+  TODO: edit the way the buttons are at the moment:
 
 ### Routes
 

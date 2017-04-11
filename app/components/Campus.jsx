@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import StudentsContainer from '../containers/StudentsContainer';//will reuse this container but with a filtered list of students for just the current campus
+import { Link } from 'react-router';
 
 export default function Campus (props, state) {
   //get data we need from props passed down by the CampusContainer
@@ -18,6 +19,7 @@ export default function Campus (props, state) {
         <h4>{`Number of Students: ${students.length}`}</h4>
         <img src={ campus.image } className="campus img-thumbnail"/>
       </div>
+      <Link to={`/campuses/${campus.id}/students/add`}>Add A Student:</Link>
       <h2>Students:</h2>
       <table className='table'>{/* TODO: render the table conditionally if there are students for a campus*/}
         <thead>
@@ -31,11 +33,13 @@ export default function Campus (props, state) {
             <tr key={student.id}>
               <td>{student.firstName}</td>
               <td>{student.lastName}</td>
+              <td><Link to={`/students/${student.id}`}>View</Link></td>
               <td>
                 <button className="btn btn-danger" onClick={() => remove(student, students)}>
                 <span>&times;</span></button>
               </td>
             </tr>)) : `No students assigned to ${campus.name} yet.`
+
           }
         </tbody>
       </table>

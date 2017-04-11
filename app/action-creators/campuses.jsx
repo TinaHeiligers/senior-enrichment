@@ -62,3 +62,21 @@ export const addNewCampus = (campusName, campusImage) => {
       });
   };
 };
+
+export const addStudentToCampus = (studentId) => {
+  return (dispatch, getState) => {
+    const selectedCampus = getState().campuses.selected;
+    // request to remove the campusId from the current student
+    return axios.put(`/api/students/${studentId}`, { campusId: selectedCampus.id })
+      .then(res => res.data)
+      .then(student => {
+        const students = selectedCampus.students;
+        const newStudents = students.concat(student); // add the new student
+        const newSelectedCampus = Object.assign({}, selectedCampus, {
+          students: newStudents
+        });
+        dispatch(receiveCampus(newSelectedCampus));
+        hashHistory.push(`/campuses/${selectedCampus.id}`);
+      })
+  };
+}

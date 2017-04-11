@@ -11,6 +11,7 @@ import App from './components/App'
 import CampusesContainer from './containers/CampusesContainer';
 import CampusContainer from './containers/CampusContainer';
 import NewCampusContainer from './containers/NewCampusContainer';
+import CampusStudentAddContainer from './containers/CampusStudentAddContainer';
 
 import StudentsContainer from './containers/StudentsContainer';
 import StudentContainer from './containers/StudentContainer';
@@ -20,6 +21,7 @@ import EditStudentContainer from './containers/EditStudentContainer';
 import Campuses from './components/Campuses';
 import Campus from './components/Campus';
 import NewCampus from './components/NewCampus';
+import CampusAddStudent from './components/CampusAddStudent';
 
 import Students from './components/Students';
 import Student from './components/Student';
@@ -57,7 +59,8 @@ export default function Root () {
       <Router history={hashHistory}>
         <Route path="/" component={App} onEnter={onAppEnter}>
           <Route path="/campuses" component={CampusesContainer} />
-          <Route path="/campuses/:campusId" component={CampusContainer} onEnter={onCampusEnter} />
+          <Route path="/campuses/:campusId" component={CampusContainer} onEnter={onCampusEnter}/>
+          <Route path="/campuses/:campusId/students/add" component={CampusStudentAddContainer}/>
           <Route path="/students" component={StudentsContainer} />
           <Route path="/students/:studentId" component={StudentContainer} onEnter={onStudentEnter} />
             {/*<Route path="campus" component={Campus} />*/}

@@ -24,7 +24,7 @@ export default function Student (props, state) {
             <td>Email:</td><td>{student.email}</td>
           </tr>
           <tr>
-            <td>Campus:</td><td>{student.campus ? student.campus.name : 'None'}</td>
+            <td>Campus:</td><td><Link to={`/campuses/${student.campusId}`}><td>{student.campus ? student.campus.name : 'None'}</td></Link></td>
           </tr>
         </tbody>
       </table>
