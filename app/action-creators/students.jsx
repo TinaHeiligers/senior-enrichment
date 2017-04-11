@@ -46,6 +46,22 @@ export const addNewStudent = (studentFirstName, studentLastName, studentEmail, s
       });
   };
 };
+
+export const deleteStudent = (studentId) => {
+  return (dispatch, getState) => {
+    // request to remove the campusId from the current student
+    return axios.delete(`/api/students/${studentId}`)
+      .then((_res) => {
+        console.log("IN DELETE STUDENT ACTION-CREATOR", _res);
+        const students = getState().students.list;
+        console.log("STUDENTS: ", students);
+        const newStudents = students.filter(s => { return s.id != studentId }); // filter out the removed student
+        dispatch(receiveStudents(newStudents));
+        hashHistory.push(`/students`);
+      })
+  };
+
+}
 //action creator for updating a student
 export const editStudent = (student) => {
   return (dispatch, getState) => {

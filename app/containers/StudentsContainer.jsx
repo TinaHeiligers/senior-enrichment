@@ -1,5 +1,7 @@
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Students from '../components/Students';
+import { deleteStudent } from '../action-creators/students';
 
 const mapStateToProps = (state) => {
 	return {
@@ -7,8 +9,17 @@ const mapStateToProps = (state) => {
 	};
 };
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deleteOne (studentId) {
+      dispatch(deleteStudent(studentId));//dispatching the action to add a new campus
+    }
+  }
+}
+
 const StudentsContainer = connect(
-      mapStateToProps
+      mapStateToProps,
+      mapDispatchToProps
       )(Students);
 
 export default StudentsContainer;

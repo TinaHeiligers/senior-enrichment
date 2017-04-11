@@ -72,7 +72,9 @@ api.post('/students', function(req, res, next) {
 api.delete('/students/:studentId', function(req, res, next) {
 	return Student.destroy({where: {
 		id: req.params.studentId
-	}});
+	}})
+	.then(() => res.sendStatus(200))
+	.catch(next);
 })
 
 //CAMPUS(ES)
