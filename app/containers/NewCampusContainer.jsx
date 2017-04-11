@@ -18,7 +18,8 @@ class NewCampusContainer extends Component {
     super(props);
     this.state = {
       name: '',
-      image: ''
+      image: '',
+      dirty: false
     };
 
     this.handleNameChange = this.handleNameChange.bind(this);
@@ -30,7 +31,8 @@ class NewCampusContainer extends Component {
     evt.preventDefault();
     let nameValue = evt.target.value
     this.setState({
-      name: nameValue
+      name: nameValue,
+      dirty: true
     });
   }
 
@@ -38,7 +40,8 @@ class NewCampusContainer extends Component {
     evt.preventDefault();
     let imageValue = evt.target.value
     this.setState({
-      image: imageValue
+      image: imageValue,
+      dirty: true
     });
   }
 
@@ -48,13 +51,19 @@ class NewCampusContainer extends Component {
     //resetting the form fields after submission
     this.setState({
       name: '',
-      image: ''
+      image: '',
+      dirty: false
     });
   }
 
   render () {
     let image = this.state.image;
     let name = this.state.name;
+    const dirty = this.state.dirty;
+    let warning = '';
+
+    if (!name && dirty) warning = 'You must enter a name';
+    else if (name.length > 16) warning = 'The campus name is too long (limit: 16 characters)';
 
     return (
       <NewCampus
@@ -63,6 +72,7 @@ class NewCampusContainer extends Component {
         handleSubmit={this.handleSubmit}
         name={name}
         image={image}
+        warning={warning}
       />
     );
   }

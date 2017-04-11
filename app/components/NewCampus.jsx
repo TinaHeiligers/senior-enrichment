@@ -8,13 +8,16 @@ export default function NewCampus (props) {
   const handleNameChange = props.handleNameChange;
   const handleImageChange = props.handleImageChange;
   const handleSubmit = props.handleSubmit;
-  const inputValue = props.inputValue;
+  const name = props.name;
+  const image = props.image;
+  const warning = props.warning;
 
   return (
     <div>
       <form className="form-horizontal" onSubmit={handleSubmit}>
         <fieldset>
           <legend>New Campus</legend>
+          { warning && <div className="alert alert-warning">{warning}</div> }
             <div className="form-group">
               <label className="col-xs-2 control-label">Name</label>
               <div className="col-xs-10">
@@ -24,7 +27,7 @@ export default function NewCampus (props) {
                   placeholder="Campus Name"
                   type="text"
                   onChange={handleNameChange}
-                  value={inputValue}
+                  value={name}
                 />
               </div>
             </div>
@@ -37,13 +40,16 @@ export default function NewCampus (props) {
                   placeholder="Campus Image url: http://lorempixel.com/500/500/city/5"
                   type="text"
                   onChange={handleImageChange}
-                  value={inputValue}
+                  value={image}
                 />
               </div>
             </div>
             <div className="form-group">
               <div className="col-xs-10 col-xs-offset-2">
-                <button type="submit" className="btn btn-success">Add Campus</button>
+                <button
+                  type="submit"
+                  className="btn btn-success"
+                  disabled={!!warning || !name}>Add Campus</button>
               </div>
             </div>
           </fieldset>
