@@ -19,7 +19,8 @@ class NewStudentContainer extends Component {
     this.state = {
       firstName: '',
       lastName: '',
-      email: ''
+      email: '',
+      dirty: false
     };
 
     this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
@@ -32,7 +33,8 @@ class NewStudentContainer extends Component {
     evt.preventDefault();
     let firstNameValue = evt.target.value
     this.setState({
-      firstName: firstNameValue
+      firstName: firstNameValue,
+      dirty: true
     });
   }
 
@@ -40,7 +42,8 @@ class NewStudentContainer extends Component {
   evt.preventDefault();
   let lastNameValue = evt.target.value
   this.setState({
-    lastName: lastNameValue
+    lastName: lastNameValue,
+    dirty: true
   });
 }
 
@@ -48,7 +51,8 @@ class NewStudentContainer extends Component {
     evt.preventDefault();
     let emailValue = evt.target.value
     this.setState({
-      email: emailValue
+      email: emailValue,
+      dirty: true
     });
   }
 
@@ -59,7 +63,8 @@ class NewStudentContainer extends Component {
     this.setState({
       firstName: '',
       lastName: '',
-      email: ''
+      email: '',
+      dirty: false
     });
   }
 
@@ -67,6 +72,12 @@ class NewStudentContainer extends Component {
     let firstName = this.state.firstName;
     let lastName = this.state.lastName;
     let email = this.state.email;
+    const dirty = this.state.dirty;
+    let warning = '';
+
+    if (!firstName && !lastName && !email && dirty) warning = 'You must enter details for a student';
+    else if (firstName.length > 16 ) warning = 'The student\'s first name is too long (limit: 16 characters)';
+    else if (lastName.length > 16 ) warning = 'The student\'s last name is too long (limit: 16 characters)';
 
 
     return (
@@ -78,6 +89,7 @@ class NewStudentContainer extends Component {
         firstName={firstName}
         lastName={lastName}
         email={email}
+        warning={warning}
       />
     );
   }

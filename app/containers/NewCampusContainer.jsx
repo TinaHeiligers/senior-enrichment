@@ -40,8 +40,7 @@ class NewCampusContainer extends Component {
     evt.preventDefault();
     let imageValue = evt.target.value
     this.setState({
-      image: imageValue,
-      dirty: true
+      image: imageValue
     });
   }
 

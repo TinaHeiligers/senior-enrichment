@@ -9,13 +9,17 @@ export default function NewStudent (props) {
   const handleLastNameChange = props.handleLastNameChange;
   const handleEmailChange = props.handleEmailChange;
   const handleSubmit = props.handleSubmit;
-  const inputValue = props.inputValue;
+  const firstName = props.firstName;
+  const lastName = props.lastName;
+  const email = props.email;
+  const warning = props.warning;
 
   return (
     <div>
       <form className="form-horizontal" onSubmit={handleSubmit}>
         <fieldset>
           <legend>New Student</legend>
+          { warning && <div className="alert alert-warning">{warning}</div> }
             <div className="form-group">
               <label className="col-xs-2 control-label">First Name</label>
               <div className="col-xs-10">
@@ -25,7 +29,7 @@ export default function NewStudent (props) {
                   placeholder="First Name"
                   type="text"
                   onChange={handleFirstNameChange}
-                  value={inputValue}
+                  value={firstName}
                 />
               </div>
             </div>
@@ -38,7 +42,7 @@ export default function NewStudent (props) {
                   placeholder="Last Name"
                   type="text"
                   onChange={handleLastNameChange}
-                  value={inputValue}
+                  value={lastName}
                 />
               </div>
             </div>
@@ -51,13 +55,17 @@ export default function NewStudent (props) {
                   placeholder="e.g. email@address.com"
                   type="text"
                   onChange={handleEmailChange}
-                  value={inputValue}
+                  value={email}
                 />
               </div>
             </div>
             <div className="form-group">
               <div className="col-xs-10 col-xs-offset-2">
-                <button type="submit" className="btn btn-success">Add Student</button>
+                <button
+                  type="submit"
+                  className="btn btn-success"
+                  disabled={!!warning || !firstName && !lastName}>Add Student</button>
+
               </div>
             </div>
           </fieldset>
