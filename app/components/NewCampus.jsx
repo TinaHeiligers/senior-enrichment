@@ -21,6 +21,7 @@ export default function NewCampus (props) {
                 <input
                   className="form-control"
                   name="name"
+                  placeholder="Campus Name"
                   type="text"
                   onChange={handleNameChange}
                   value={inputValue}
@@ -33,6 +34,7 @@ export default function NewCampus (props) {
                 <input
                   className="form-control"
                   name="image"
+                  placeholder="Campus Image url: http://lorempixel.com/500/500/city/5"
                   type="text"
                   onChange={handleImageChange}
                   value={inputValue}
