@@ -8,10 +8,16 @@ export default function NewStudent (props) {
   const handleFirstNameChange = props.handleFirstNameChange;
   const handleLastNameChange = props.handleLastNameChange;
   const handleEmailChange = props.handleEmailChange;
+  const handleCampusChange = props.handleCampusChange;
+
   const handleSubmit = props.handleSubmit;
   const firstName = props.firstName;
   const lastName = props.lastName;
   const email = props.email;
+  const campusId = props.campusId;
+
+  const campuses = props.campuses;
+
   const warning = props.warning;
 
   return (
@@ -59,7 +65,26 @@ export default function NewStudent (props) {
                 />
               </div>
             </div>
+          {/*ADDING A CAMPUS DROPDOWN LIST FOR A STUDENT*/}
             <div className="form-group">
+            <label className="col-xs-2 control-label">Campus</label>
+            <div className="col-xs-10">
+              <select
+                className="form-control"
+                name="campus"
+                value={campusId}
+                onChange={handleCampusChange}>
+                <option key='0' value=''>None</option>
+                {
+                  campuses && campuses.map(campus => (
+                    <option key={campus.id} value={campus.id} >{campus.name}</option>
+                  ))
+                }
+              </select>
+            </div>
+          </div>
+        {/*END OF ADDING A CAMPUS DROPDOWN LIST FOR A STUDENT*/}
+          <div className="form-group">
               <div className="col-xs-10 col-xs-offset-2">
                 <button
                   type="submit"

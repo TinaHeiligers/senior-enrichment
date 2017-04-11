@@ -15,6 +15,7 @@ import NewCampusContainer from './containers/NewCampusContainer';
 import StudentsContainer from './containers/StudentsContainer';
 import StudentContainer from './containers/StudentContainer';
 import NewStudentContainer from './containers/NewStudentContainer';
+import EditStudentContainer from './containers/EditStudentContainer';
 
 import Campuses from './components/Campuses';
 import Campus from './components/Campus';
@@ -60,7 +61,7 @@ export default function Root () {
           <Route path="/students" component={StudentsContainer} />
           <Route path="/students/:studentId" component={StudentContainer} onEnter={onStudentEnter} />
             {/*<Route path="campus" component={Campus} />*/}
-            {/*<Route path="student" component={Student} />*/}
+            <Route path="/edit" component={EditStudentContainer} />
           <IndexRedirect to="/campuses"/>
         </Route>
         <Route path="/new-campus" component={NewCampusContainer} />

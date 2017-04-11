@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-class NewStudentContainer extends Component {
+class EditStudentContainer extends Component {
 
   constructor(props) {
     super(props);
@@ -120,4 +120,4 @@ class NewStudentContainer extends Component {
 export default connect(
   mapStateToProps,//no mapping state to props
   mapDispatchToProps
-)(NewStudentContainer);
+)(EditStudentContainer);

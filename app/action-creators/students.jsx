@@ -30,18 +30,32 @@ export const getStudentById = studentId => {
 //action creator for adding a student
 //payload, i.e. req.body will have the student first name, last name and email captured from the form, the hook on the model should update the student's fullname
 //TODO: update hook to remove all spaces and concatenate first and last name
-export const addNewStudent = (studentFirstName, studentLastName, studentEmail) => {
+export const addNewStudent = (studentFirstName, studentLastName, studentEmail, studentCampus) => {
   return (dispatch, getState) => {
     //async call to post a new student
-    return axios.post(`/api/students`, { firstName: studentFirstName, lastName: studentLastName, email: studentEmail })
+    return axios.post(`/api/students`, { firstName: studentFirstName, lastName: studentLastName, email: studentEmail, campusId: studentCampus })
       .then(res => res.data)
       .then(newStudent => {
         //create a new student list by concatenating the old one with the newly added student
         const newListOfStudents = getState().students.list.concat([newStudent]);
         //now dispatch receiving the students
         dispatch(receiveStudents(newListOfStudents));
+        dispatch(receiveStudent(newStudent));
         //rerender the list of students
         hashHistory.push(`/students/${newStudent.id}`);
       });
+  };
+};
+//action creator for updating a student
+export const editStudent = (student) => {
+  return (dispatch, getState) => {
+    //I'm assuming that I can pass in a student item here with updated details, grabbing original ones if they have remained unchanged
+    // return axios.put(`/api/students/${student.id}`, { firstName: studentFirstName, lastName: studentLastName, email: studentEmail, campusId: studentCampus })
+    //   .then(res => res.data)
+    //   .then(updatedStudent => {
+    //     const updatedStudent = getState().selectedStudent
+    //     dispatch(receiveStudent(updatedStudent));
+    //     hashHistory.push(`/students/${updatedStudent.id}`);
+    //   });
   };
 };
