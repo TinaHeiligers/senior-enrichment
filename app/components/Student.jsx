@@ -28,7 +28,7 @@ export default function Student (props, state) {
           </tr>
         </tbody>
       </table>
-      <Link to={`/students/${student.id}/edit`}>Edit</Link>
+      <Link className="btn btn-default" to={`/students/${student.id}/edit`}>Edit</Link>
     </div>
   );
 }

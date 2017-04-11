@@ -52,4 +52,9 @@ td {
   max-width: 30%;
 }
 
-
+.campus-delete {
+  position: relative;
+  top: -70px;
+  float: right;
+  right: 10px;
+}

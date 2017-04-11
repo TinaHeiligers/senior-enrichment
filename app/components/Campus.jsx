@@ -10,7 +10,6 @@ export default function Campus (props, state) {
   const campus = props.selectedCampus;
   const students = props.selectedCampusStudents;
   const remove = props.removeOne;
-  console.log("IN CAMPUS COMPONTENT: props.removeOne", props.removeOne);
 
   return (
     <div>
@@ -36,7 +35,7 @@ export default function Campus (props, state) {
               <td><Link to={`/students/${student.id}`}>View</Link></td>
               <td>
                 <button className="btn btn-danger" onClick={() => remove(student, students)}>
-                <span>&times;</span></button>
+                <span>Remove</span></button>
               </td>
             </tr>)) : `No students assigned to ${campus.name} yet.`
 

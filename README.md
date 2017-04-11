@@ -62,9 +62,9 @@ Use at least sequelize, express, react, and redux when creating this app. You ca
 
   TODO * can edit a campus's info: PUT to '/campuses/:campusId' - campus info such as name
   TODO * can edit a student's info, including the campus that student is assigned to
-  TODO * can delete a student
-  TODO * can delete a campus
-  TODO: edit the way the buttons are at the moment:
+  DONE * can delete a student
+  DONE * can delete a campus
+  DONE: edit the way the buttons are at the moment:
 
 ### Routes
 
@@ -92,6 +92,12 @@ PUT
 DELETE
 - DONE- a campus
 - DONE- a student
+```
+
+```
+OTHER
+- TODO: Param for campus
+- TODO: split routes into separate files
 ```
 
 ## Evaluation

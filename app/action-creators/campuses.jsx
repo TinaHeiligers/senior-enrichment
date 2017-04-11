@@ -80,3 +80,19 @@ export const addStudentToCampus = (studentId) => {
       })
   };
 }
+
+export const deleteCampus = (campusId) => {
+  return (dispatch, getState) => {
+    // request to remove the campusId from the current student
+    return axios.delete(`/api/campuses/${campusId}`)
+      .then((_res) => {
+        console.log("IN DELETE CAMPUS ACTION-CREATOR", _res);
+        const campuses = getState().campuses.list;
+        console.log("campuses: ", campuses);
+        const newCampuses = campuses.filter(c => { return c.id != campusId }); // filter out the removed student
+        dispatch(receiveCampuses(newCampuses));
+        hashHistory.push(`/campuses`);
+      })
+  };
+
+}
