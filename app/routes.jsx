@@ -10,14 +10,16 @@ import App from './components/App'
 
 import CampusesContainer from './containers/CampusesContainer';
 import CampusContainer from './containers/CampusContainer';
-// import NewCampusContainer from './containers/NewCampusContainer';
-//
+import NewCampusContainer from './containers/NewCampusContainer';
+
 import StudentsContainer from './containers/StudentsContainer';
 import StudentContainer from './containers/StudentContainer';
 // import NewStudentContainer from './containers/NewStudentContainer';
 
 import Campuses from './components/Campuses';
 import Campus from './components/Campus';
+import NewCampus from './components/NewCampus';
+
 import Students from './components/Students';
 import Student from './components/Student';
 
@@ -60,8 +62,8 @@ export default function Root () {
             <Route path="student" component={Student} />
           <IndexRedirect to="/campuses"/>
         </Route>
-        {/*<Route path="/new-campus" component={NewCampusContainer}/>
-        <Route path="/new-student" component={NewStudentContainer}/>*/}
+        <Route path="/new-campus" component={NewCampusContainer}/>
+        {/*<Route path="/new-student" component={NewStudentContainer}/>*/}
 
       </Router>
     </Provider>

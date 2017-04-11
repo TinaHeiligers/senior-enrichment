@@ -1,8 +1,10 @@
 import axios from 'axios';
+import {hashHistory} from 'react-router';
 
 //********Constants**********//
 export const RECEIVE_CAMPUSES = "RECEIVE_CAMPUSES";
 export const RECEIVE_CAMPUS = "RECEIVE_CAMPUS";
+export const ADD_CAMPUS = "ADD_CAMPUS";
 
 //******action-creators*******//
 //api call for receiveCampuses is onEnter for main app in routes.jsx file
@@ -40,5 +42,23 @@ export const removeStudent = (studentId) => {
         });
         dispatch(receiveCampus(newSelectedCampus));
       })
+  };
+};
+
+//action creator for adding a campus
+//payload, i.e. req.body will have the campus name and the campus image captured from the form
+export const addNewCampus = (campusName, campusImage) => {
+  return (dispatch, getState) => {
+    //async call to post a new campus
+    return axios.post(`/api/campuses`, { name: campusName, image: campusImage })
+      .then(res => res.data)
+      .then(newCampus => {
+        //create a new camus list by concatenating the old one with the newly added campus
+        const newListOfCampuses = getState().campuses.list.concat([newCampus]);
+        //now dispatch receiving the campuses
+        dispatch(receiveCampuses(newListOfCampuses));
+        //rerender the list of campuses
+        hashHistory.push(`/campuses/${newCampus.id}`);
+      });
   };
 };

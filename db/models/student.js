@@ -33,21 +33,21 @@ module.exports = db.define('student', {
   classMethods: {
     //need a method to return all students from the same campus: not working, wrote the route itself
     findByCampus: function(campusId) {
-      return this.findAll({
+      return Student.findAll({
         where: {
           campusId: this.campusId//the campusId's match
         }
       });
     }
   },
-    hooks: {
-      //create a full name from the first name and last name without a space all to lower case
-      beforeValidate: function(student) {
-        student.fullName = (student.firstName && student.lastName) ?
-            (student.firstName.toLowerCase()).concat('').concat(student.lastName.toLowerCase()) :
-            'noname';
-          }
-    },
+  hooks: {
+    //create a full name from the first name and last name without a space all to lower case
+    beforeValidate: function(student) {
+      student.fullName = (student.firstName && student.lastName) ?
+          (student.firstName.toLowerCase()).concat('').concat(student.lastName.toLowerCase()) :
+          'noname';
+        }
+  },
   defaultScope: {
     include: [{model: Campus, as: 'campus'}]
   }
