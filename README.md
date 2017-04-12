@@ -1,16 +1,18 @@
 # Senior Enrichment Project
 
-Make a thing!
+I Made a Thing!
 
-## Getting started
+## Running this app:
 
 1. Fork and clone this repo
-2. *Set the name of your project in `package.json`*. The skeleton intentionally ships with an invalid name.
-3. `npm install`
-4. Check out the mock-view in the `wireframes` folder
+2. `npm install`
+3. Create a postgress database named MHIAJ
+4. Change the database synchronisation to {force:true} on line 24 in db/models/index.js
+5. Run 'node seed' from the command line
+6. Change the database synchronisation to {force:false} on line 24 in db/models/index.js again
 5. Start the build process with: `npm run build-watch`
 6. In another terminal, start your app with `npm start`
-7. If you navigate to the URL you should see some UI already :) [We already have some connection code to get you started]
+7. Navigate to localhost:1337 to launch the app.
 
 ## Requirements
 
@@ -25,11 +27,11 @@ Use at least sequelize, express, react, and redux when creating this app. You ca
 ### DB Design
 
 - Students
-  * have profile info (e.g. name and email)
-  * must be assigned to a campus
+  * have profile info (first name, last name and email)
+  * are assigned to a campus
 
 - Campuses
-  * have info such as a name and image
+  * have a name and image
   * can have many students assigned (may have none)
 
 ### Views and Functionality

@@ -20,7 +20,7 @@ const db = new Sequelize(connectionString, {
 // requires in  {Campus: Campus, Student: Student}
 require('./models');
 
-// sync the db, creating it if necessary
+// sync the db, creating it if necessary, change sync(force = true, retries = 0, maxRetires = 5) {...} to synchronise a data base and to run to seed file
 function sync(force = false, retries = 0, maxRetries = 5) {
   return db.sync({force})
   .then(() => console.log(`Synced models to db ${connectionString}`))
