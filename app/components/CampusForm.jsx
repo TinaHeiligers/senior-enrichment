@@ -2,7 +2,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 
-export default function NewCampus (props) {
+export default function CampusForm (props) {
   //methods passed down from container to handle form events
   //TODO: define these
   const handleNameChange = props.handleNameChange;
@@ -11,12 +11,13 @@ export default function NewCampus (props) {
   const name = props.name;
   const image = props.image;
   const warning = props.warning;
+  const formTitle = props.formTitle;
 
   return (
     <div>
       <form className="form-horizontal" onSubmit={handleSubmit}>
         <fieldset>
-          <legend>New Campus</legend>
+          <legend>{formTitle}</legend>
           { warning && <div className="alert alert-warning">{warning}</div> }
             <div className="form-group">
               <label className="col-xs-2 control-label">Name</label>
@@ -49,7 +50,7 @@ export default function NewCampus (props) {
                 <button
                   type="submit"
                   className="btn btn-success"
-                  disabled={!!warning || !name}>Add Campus</button>
+                  disabled={!!warning || !name}>Save</button>
               </div>
             </div>
           </fieldset>

@@ -1,31 +1,32 @@
 import React, { Component } from 'react';
 import CampusForm from '../components/CampusForm';
-import { addNewCampus } from '../action-creators/campuses'; //TODO: define the action creator to operate on a new campus action;
+import { editCampus } from '../action-creators/campuses';
 import { connect } from 'react-redux';
 
 //modify this container to double as an edit container as well.? Or create a new container
 //if so, I need to pass down the currently selected campus to the whole form
 //get the currently selected campus from state.
+const mapStateToProps = (state) => {
+  return {
+    campus: state.campuses.selected,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    //have two items to pass into adding a new campus: the name and the image
-    addNewCampus (campusName, campusImage) {
-      dispatch(addNewCampus(campusName, campusImage));//dispatching the action to add a new campus
-    },
-    editOne (campus) {//here I have to pass the whole instance of the campus in to update it.
-      dispatch(editCampus(campus))
+    editOne (campusName, campusImage) {//here I have to pass the whole instance of the campus in to update it.currently only passing in the name
+      dispatch(editCampus(campusName, campusImage))
     }
   };
 };
 
-class NewCampusContainer extends Component {
+class EditCampusContainer extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      image: '',
+      name: props.campus.name,
+      image: props.campus.image,
       dirty: false
     };
 
@@ -53,13 +54,7 @@ class NewCampusContainer extends Component {
 
   handleSubmit (evt) {
     evt.preventDefault();//preventing bubling up
-    this.props.addNewCampus(this.state.name, this.state.image);//submit new items to props
-    //resetting the form fields after submission
-    this.setState({
-      name: '',
-      image: '',
-      dirty: false
-    });
+    this.props.editOne(this.state.name, this.state.image);//currently uses name and image for the campus
   }
 
   render () {
@@ -79,13 +74,13 @@ class NewCampusContainer extends Component {
         name={name}
         image={image}
         warning={warning}
-        formTitle="Add Campus"
+        formTitle="Edit Campus"
       />
     );
   }
 }
 
 export default connect(
-  null,//no mapping state to props
+  mapStateToProps,
   mapDispatchToProps
-)(NewCampusContainer);
+)(EditCampusContainer);

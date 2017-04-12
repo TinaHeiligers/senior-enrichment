@@ -14,9 +14,10 @@ export default function Campus (props, state) {
   return (
     <div>
       <div className="centered">
-        <h2>{ campus.name }</h2>
-        <h4>{`Number of Students: ${students.length}`}</h4>
-        <img src={ campus.image } className="campus img-thumbnail"/>
+        <Link className="btn btn-default" to={`/campuses/${campus.id}/edit`}>Edit</Link>
+          <h2>{ campus.name }</h2>
+          <h4>{`Number of Students: ${students.length}`}</h4>
+          <img src={ campus.image } className="campus img-thumbnail"/>
       </div>
       <Link to={`/campuses/${campus.id}/students/add`}>Add A Student:</Link>
       <h2>Students:</h2>
