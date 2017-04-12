@@ -96,3 +96,6 @@ export const deleteCampus = (campusId) => {
   };
 
 }
+// action creator for editing a campus
+//payload, i.e. req.body will have the campus name and the campus image captured from the form
+

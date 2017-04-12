@@ -3,11 +3,18 @@ import NewCampus from '../components/NewCampus';
 import { addNewCampus } from '../action-creators/campuses'; //TODO: define the action creator to operate on a new campus action;
 import { connect } from 'react-redux';
 
+//modify this container to double as an edit container as well.? Or create a new container
+//if so, I need to pass down the currently selected campus to the whole form
+//get the currently selected campus from state.
+
 const mapDispatchToProps = (dispatch) => {
   return {
     //have two items to pass into adding a new campus: the name and the image
     addNewCampus (campusName, campusImage) {
       dispatch(addNewCampus(campusName, campusImage));//dispatching the action to add a new campus
+    },
+    editOne (campus) {//here I have to pass the whole instance of the campus in to update it.
+      dispatch(editCampus(campus))
     }
   };
 };

@@ -120,4 +120,4 @@ class NewStudentContainer extends Component {
 export default connect(
   mapStateToProps,//no mapping state to props
   mapDispatchToProps
-)(NewStudentContainer);
+)(NewStudentContainer);//this is wrong, I need to dispatch these to the component, not the container! I do, however, need to export the container.

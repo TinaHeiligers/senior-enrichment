@@ -98,6 +98,7 @@ DELETE
 OTHER
 - TODO: Param for campus
 - TODO: split routes into separate files
+- TODO: styling (forms)
 ```
 
 ## Evaluation

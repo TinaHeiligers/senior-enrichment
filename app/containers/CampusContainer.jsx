@@ -1,6 +1,6 @@
 import Campus from '../components/Campus';
 import { connect } from 'react-redux';
-import {removeStudent, deleteCampus} from '../action-creators/campuses';
+import {removeStudent} from '../action-creators/campuses';
 
 const mapStateToProps = (state) => {
 	return {
