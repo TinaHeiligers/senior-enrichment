@@ -15,6 +15,7 @@ body {
 }
 navbar {
   position: fixed;
+  margin-bottom: 0;
   right: 0;
   top: 0;
   padding: 0 !important;
@@ -57,4 +58,16 @@ td {
   top: -70px;
   float: right;
   right: 10px;
+}
+
+.background {
+  background-image: url("galaxy_image.jpg");
+  padding: 25%;
+}
+
+.fantasy {
+  font-family: fantasy;
+}
+.stats {
+  font-size: 2em;
 }

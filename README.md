@@ -37,7 +37,7 @@ Use at least sequelize, express, react, and redux when creating this app. You ca
 
 - Navigation: as a user I...
 //REACT STUFF
-  - DONE * will land on **Home** by default
+  - TODO * will land on **Home** by default
   - DONE * can navigate to **Campuses** from **Home**
   - DONE * can navigate to **Students** from **Home**
   - DONE * can navigate to view a **Single Campus** from **Campuses**
@@ -61,7 +61,7 @@ Use at least sequelize, express, react, and redux when creating this app. You ca
   - DONE * can create a student
 
   DONE * can edit a campus's info: PUT to '/campuses/:campusId' - campus info such as name
-  TODO * can edit a student's info, including the campus that student is assigned to
+  DONE * can edit a student's info, including the campus that student is assigned to
   DONE * can delete a student
   DONE * can delete a campus
   DONE: edit the way the buttons are at the moment:
@@ -96,9 +96,12 @@ DELETE
 
 ```
 OTHER
+- TODO: create home page for landing* will land on **Home** by default
+- TODO: move new student, new campus buttons off navbar into student list/campus list
+- TODO: styling (forms, buttons, button placement)
 - TODO: Param for campus
 - TODO: split routes into separate files
-- TODO: styling (forms)
+- TODO: tests
 ```
 
 ## Evaluation

@@ -7,6 +7,7 @@ import axios from 'axios';
 import store from './store';
 
 import App from './components/App'
+import HomeContainer from './containers/HomeContainer';
 
 import CampusesContainer from './containers/CampusesContainer';
 import CampusContainer from './containers/CampusContainer';
@@ -59,6 +60,7 @@ export default function Root () {
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path="/" component={App} onEnter={onAppEnter}>
+          <Route path="/home" component={HomeContainer} onEnter={onAppEnter} />
           <Route path="/campuses" component={CampusesContainer} />
           <Route path="/campuses/:campusId" component={CampusContainer} onEnter={onCampusEnter}/>
           <Route path="/campuses/:campusId/students/add" component={CampusStudentAddContainer}/>
@@ -66,7 +68,7 @@ export default function Root () {
           <Route path="/students/:studentId" component={StudentContainer} onEnter={onStudentEnter} />
             <Route path="/campuses/:campusId/edit" component={EditCampusContainer} />
             <Route path="/students/:studentId/edit" component={EditStudentContainer} />
-          <IndexRedirect to="/campuses"/>
+          <IndexRedirect to="/home"/>
         </Route>
         <Route path="/new-campus" component={NewCampusContainer} />
         <Route path="/new-student" component={NewStudentContainer} />

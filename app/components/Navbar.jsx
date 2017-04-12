@@ -8,10 +8,10 @@ export default function Navbar () {
     <nav className="navbar navbar-inverse">
       <div className="container-fluid">
         <div className="navbar-header">
-          <Link className="navbar-brand" to='/campuses'>MHIAJ</Link>
+          <Link className="navbar-brand" to='/home'>MHIAJ</Link>
         </div>
         <ul className="nav navbar-nav navbar-right">
-          <li><Link to='/campuses'>HOME</Link></li>
+          <li><Link to='/campuses'>CAMPUSES</Link></li>
           <li><Link to='/students'>STUDENTS</Link></li>
           <li>
             <Link className="btn btn-primary" to="/new-campus">

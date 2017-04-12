@@ -5,13 +5,12 @@ import Navbar from '../components/Navbar';
 //import actions and action creators
 
 export default function App ({ children }) {
-  console.log("IN APP COMPONENT CHILDREN: ", children)
   return (
     <div id="main" className="container-fluid">
-      <div className="col-xs-12 navbar">
+      <div>
         <Navbar />
       </div>
-      <div className="col-xs-12">
+      <div>
         { children }
       </div>
     </div>
