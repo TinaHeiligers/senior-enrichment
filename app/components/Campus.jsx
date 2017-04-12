@@ -14,13 +14,12 @@ export default function Campus (props, state) {
   return (
     <div>
       <div className="centered">
-        <Link className="btn btn-default" to={`/campuses/${campus.id}/edit`}>Edit</Link>
           <h2>{ campus.name }</h2>
           <h4>{`Number of Students: ${students.length}`}</h4>
           <img src={ campus.image } className="campus img-thumbnail"/>
+          <Link className="btn btn-default campus-edit" to={`/campuses/${campus.id}/edit`}>Edit</Link>
       </div>
-      <Link to={`/campuses/${campus.id}/students/add`}>Add A Student:</Link>
-      <h2>Students:</h2>
+      <h2>Students: <Link className="btn btn-success add-student-to-campus" to={`/campuses/${campus.id}/students/add`}>Add A Student:</Link></h2>
       <table className='table'>{/* TODO: render the table conditionally if there are students for a campus*/}
         <thead>
           <tr>
@@ -33,8 +32,8 @@ export default function Campus (props, state) {
             <tr key={student.id}>
               <td>{student.firstName}</td>
               <td>{student.lastName}</td>
-              <td><Link to={`/students/${student.id}`}>View</Link></td>
               <td>
+                <Link className="btn btn-info" to={`/students/${student.id}`}>View</Link>
                 <button className="btn btn-danger" onClick={() => remove(student, students)}>
                 <span>Remove</span></button>
               </td>

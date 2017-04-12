@@ -13,7 +13,7 @@ export default function Students (props, state) {
             <th><h3>LastName</h3></th>
             <th><h3>Campus</h3></th>
             <th><Link className="btn btn-success add-new" to="/new-student">
-              <span className="glyphicon glyphicon-plus"></span> Add Student
+              <span className="glyphicon glyphicon-plus"></span> New Student
             </Link></th>
           </tr>
          </thead>

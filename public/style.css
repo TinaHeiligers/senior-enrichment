@@ -76,3 +76,13 @@ td {
   position: relative;
   padding: 5px;
 }
+.add-student-to-campus {
+  position: relative;
+  float: right;
+}
+.campus-edit {
+  position: relative;
+  float: right;
+  width: 75px;
+  padding: 0.5em;
+}
