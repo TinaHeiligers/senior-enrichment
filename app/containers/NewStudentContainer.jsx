@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import StudentForm from '../components/StudentForm';
-import { addNewStudent } from '../action-creators/students'; //TODO: define the action creator to operate on a new campus action;
+import { addNewStudent } from '../action-creators/students';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => {
@@ -19,7 +19,6 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 class NewStudentContainer extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -39,7 +38,7 @@ class NewStudentContainer extends Component {
 
   handleFirstNameChange (evt) {
     evt.preventDefault();
-    let firstNameValue = evt.target.value
+    let firstNameValue = evt.target.value;
     this.setState({
       firstName: firstNameValue,
       dirty: true
@@ -47,17 +46,17 @@ class NewStudentContainer extends Component {
   }
 
   handleLastNameChange (evt) {
-  evt.preventDefault();
-  let lastNameValue = evt.target.value
-  this.setState({
-    lastName: lastNameValue,
-    dirty: true
-  });
-}
+    evt.preventDefault();
+    let lastNameValue = evt.target.value;
+    this.setState({
+      lastName: lastNameValue,
+      dirty: true
+    });
+  }
 
   handleEmailChange (evt) {
     evt.preventDefault();
-    let emailValue = evt.target.value
+    let emailValue = evt.target.value;
     this.setState({
       email: emailValue,
       dirty: true
@@ -66,15 +65,15 @@ class NewStudentContainer extends Component {
 
   handleCampusChange (evt) {
     evt.preventDefault();
-    let campusValue = evt.target.value
+    let campusValue = evt.target.value;
     this.setState({
       campusId: campusValue
     });
   }
 
   handleSubmit (evt) {
-    evt.preventDefault();//preventing bubling up
-    this.props.addNewStudent(this.state.firstName, this.state.lastName, this.state.email, this.state.campusId);//submit new items to props
+    evt.preventDefault(); //preventing bubling up
+    this.props.addNewStudent(this.state.firstName, this.state.lastName, this.state.email, this.state.campusId); //submit new items to props
     //resetting the form fields after submission
     this.setState({
       firstName: '',
@@ -94,10 +93,13 @@ class NewStudentContainer extends Component {
     const dirty = this.state.dirty;
     let warning = '';
 
-    if (!firstName && !lastName && !email && dirty) warning = 'You must enter details for a student';
-    else if (firstName.length > 16 ) warning = 'The student\'s first name is too long (limit: 16 characters)';
-    else if (lastName.length > 16 ) warning = 'The student\'s last name is too long (limit: 16 characters)';
-
+    if (!firstName && !lastName && !email && dirty) {
+      warning = 'You must enter details for a student';
+    } else if (firstName.length > 16 ) {
+      warning = 'The student\'s first name is too long (limit: 16 characters)';
+    } else if (lastName.length > 16 ) {
+      warning = 'The student\'s last name is too long (limit: 16 characters)';
+    }
 
     return (
       <StudentForm
@@ -119,6 +121,6 @@ class NewStudentContainer extends Component {
 }
 
 export default connect(
-  mapStateToProps,//no mapping state to props
+  mapStateToProps,
   mapDispatchToProps
-)(NewStudentContainer);//this is wrong, I need to dispatch these to the component, not the container! I do, however, need to export the container.
+)(NewStudentContainer);

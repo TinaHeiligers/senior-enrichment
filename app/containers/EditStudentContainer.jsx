@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     editOne (studentFirstName, studentLastName, studentEmail, studentCampus) {
-      dispatch(editStudent(studentFirstName, studentLastName, studentEmail, studentCampus))
+      dispatch(editStudent(studentFirstName, studentLastName, studentEmail, studentCampus));
     }
   };
 };
@@ -39,7 +39,7 @@ class EditStudentContainer extends Component {
 
   handleFirstNameChange (evt) {
     evt.preventDefault();
-    let firstNameValue = evt.target.value
+    let firstNameValue = evt.target.value;
     this.setState({
       firstName: firstNameValue,
       dirty: true
@@ -47,17 +47,17 @@ class EditStudentContainer extends Component {
   }
 
   handleLastNameChange (evt) {
-  evt.preventDefault();
-  let lastNameValue = evt.target.value
-  this.setState({
-    lastName: lastNameValue,
-    dirty: true
-  });
-}
+    evt.preventDefault();
+    let lastNameValue = evt.target.value;
+    this.setState({
+      lastName: lastNameValue,
+      dirty: true
+    });
+  }
 
   handleEmailChange (evt) {
     evt.preventDefault();
-    let emailValue = evt.target.value
+    let emailValue = evt.target.value;
     this.setState({
       email: emailValue,
       dirty: true
@@ -66,15 +66,15 @@ class EditStudentContainer extends Component {
 
   handleCampusChange (evt) {
     evt.preventDefault();
-    let campusValue = evt.target.value
+    let campusValue = evt.target.value;
     this.setState({
       campusId: campusValue
     });
   }
 
   handleSubmit (evt) {
-    evt.preventDefault();//preventing bubling up
-    this.props.editOne(this.state.firstName, this.state.lastName, this.state.email, this.state.campusId);//submit new items to props
+    evt.preventDefault(); //preventing bubling up
+    this.props.editOne(this.state.firstName, this.state.lastName, this.state.email, this.state.campusId); //submit new items to props
   }
 
   render () {
@@ -86,9 +86,13 @@ class EditStudentContainer extends Component {
     const dirty = this.state.dirty;
     let warning = '';
 
-    if (!firstName && !lastName && !email && dirty) warning = 'You must enter details for a student';
-    else if (firstName.length > 16 ) warning = 'The student\'s first name is too long (limit: 16 characters)';
-    else if (lastName.length > 16 ) warning = 'The student\'s last name is too long (limit: 16 characters)';
+    if (!firstName && !lastName && !email && dirty) {
+      warning = 'You must enter details for a student';
+    } else if (firstName.length > 16 ) {
+      warning = 'The student\'s first name is too long (limit: 16 characters)';
+    } else if (lastName.length > 16 ) {
+      warning = 'The student\'s last name is too long (limit: 16 characters)';
+    }
 
     return (
       <StudentForm

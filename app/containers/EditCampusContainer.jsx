@@ -12,7 +12,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     editOne (campusName, campusImage) {
-      dispatch(editCampus(campusName, campusImage))
+      dispatch(editCampus(campusName, campusImage));
     }
   };
 };
@@ -34,7 +34,7 @@ class EditCampusContainer extends Component {
 
   handleNameChange (evt) {
     evt.preventDefault();
-    let nameValue = evt.target.value
+    let nameValue = evt.target.value;
     this.setState({
       name: nameValue,
       dirty: true
@@ -43,14 +43,14 @@ class EditCampusContainer extends Component {
 
   handleImageChange (evt) {
     evt.preventDefault();
-    let imageValue = evt.target.value
+    let imageValue = evt.target.value;
     this.setState({
       image: imageValue
     });
   }
 
   handleSubmit (evt) {
-    evt.preventDefault();//preventing bubling up
+    evt.preventDefault(); //preventing bubling up
     this.props.editOne(this.state.name, this.state.image);
   }
 
@@ -60,8 +60,11 @@ class EditCampusContainer extends Component {
     const dirty = this.state.dirty;
     let warning = '';
 
-    if (!name && dirty) warning = 'You must enter a name';
-    else if (name.length > 16) warning = 'The campus name is too long (limit: 16 characters)';
+    if (!name && dirty) {
+      warning = 'You must enter a name';
+    } else if (name.length > 16) {
+      warning = 'The campus name is too long (limit: 16 characters)';
+    }
 
     return (
       <CampusForm

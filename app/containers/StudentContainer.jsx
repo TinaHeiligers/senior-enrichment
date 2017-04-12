@@ -14,12 +14,12 @@ const mapDispatchToProps = (dispatch) => {
       //I need to pass the entire instance of the student in here to dispatch the action with the new student details
       dispatch(editStudent(student));
     }
-  }
-}
+  };
+};
 
 const StudentContainer = connect(
-    mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Student);
 
 export default StudentContainer;

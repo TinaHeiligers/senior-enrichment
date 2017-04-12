@@ -16,15 +16,14 @@ const mapDispatchToProps = (dispatch) => {
     addStudent (studentId) {
       dispatch(addStudentToCampus(studentId));
     }
-  }
-}
+  };
+};
 
 class CampusAddStudentContainer extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      studentId: '',//all I need is the student id from the drop-down list to pass into the action creator
+      studentId: '' //all I need is the student id from the drop-down list to pass into the action creator
     };
 
     this.handleStudentChange = this.handleStudentChange.bind(this);
@@ -33,8 +32,7 @@ class CampusAddStudentContainer extends Component {
 
   handleStudentChange (evt) {
     evt.preventDefault();
-    let studentValue = evt.target.value//target from the selected student in the dropdown list
-    console.log("addStudent", studentValue)
+    let studentValue = evt.target.value; //target from the selected student in the dropdown list
     this.setState({
       studentId: studentValue
     });
@@ -42,8 +40,7 @@ class CampusAddStudentContainer extends Component {
 
   handleSubmit (evt) {
     evt.preventDefault();//preventing bubling up
-    console.log("this.state.studentId", this.state.studentId)
-    this.props.addStudent(this.state.studentId);//submit new items to props
+    this.props.addStudent(this.state.studentId); //submit new items to props
   }
 
   render () {

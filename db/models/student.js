@@ -1,13 +1,12 @@
 'use strict';
-var Sequelize = require('sequelize')
-var db = require('../index.js')
+var Sequelize = require('sequelize');
+var db = require('../index.js');
 var Campus = require('./campus');
-
 
 module.exports = db.define('student', {
   firstName: {
-  	type: Sequelize.STRING,
-  	allowNul: false
+    type: Sequelize.STRING,
+    allowNul: false
   },
   lastName: {
     type: Sequelize.STRING,
@@ -18,14 +17,13 @@ module.exports = db.define('student', {
     allowNul: false
   },
   email: {
-  	type: Sequelize.STRING,
-  	validate: {
-  		isEmail: true,
-  	}
+    type: Sequelize.STRING,
+    validate: {
+      isEmail: true,
+    }
   },
 }, {
   getterMethods: {
-    //why do I have this here again?
     route: function() {
       return '/api/students/' + this.fullName;
     }
@@ -33,9 +31,9 @@ module.exports = db.define('student', {
   classMethods: {
     //need a method to return all students from the same campus: not working, wrote the route itself
     findByCampus: function(campusId) {
-      return Student.findAll({
+      return this.findAll({
         where: {
-          campusId: this.campusId//the campusId's match
+          campusId: campusId //the campusId's match
         }
       });
     }
@@ -46,7 +44,7 @@ module.exports = db.define('student', {
       student.fullName = (student.firstName && student.lastName) ?
           (student.firstName.toLowerCase()).concat('').concat(student.lastName.toLowerCase()) :
           'noname';
-        }
+    }
   },
   defaultScope: {
     include: [{model: Campus, as: 'campus'}]

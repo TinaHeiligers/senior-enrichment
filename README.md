@@ -2,13 +2,33 @@
 
 I Made a Thing!
 
+![Home](https://www.evernote.com/l/ATJ0UI8kwuBCL7tkVYD5_Kib9ozhK5cbm3o)
+
+![Campuses](https://www.evernote.com/l/ATKUkD5RrGtP1Zxcbfd42vMMsks_cK4jT9Q)
+
+![Students](https://www.evernote.com/l/ATINYsoi0WtDRqj6RFIl_AknTjH40O7-d7s)
+
+![View Campus](https://www.evernote.com/l/ATISeCaG0mtJYorqbwAlma-n1gN8wFwidPU)
+
+![Edit Campus](https://www.evernote.com/l/ATJOYCYCvhtIgrVua0B4kue6RMQhg0gIkD8)
+
+![Add Campus](https://www.evernote.com/l/ATJ-5HkPgmVCD4Gr_1TA7YAxk_ZgAMSzuEA)
+
+![Add Student to Campus](https://www.evernote.com/l/ATIPSn_fim5BG4KvEZ47bcwd-anS-23kUek)
+
+![View Student](https://www.evernote.com/l/ATIup56_rfhDgpQlH5poReWleszY3znHiYk)
+
+![Edit Student](https://www.evernote.com/l/ATKNNFpyztpMpLzBydzopZ15oClUPo0jKk0)
+
+![New Student](https://www.evernote.com/l/ATLTDdCNxsJP9KS7IYmLWag_Feu94Zu5r9A)
+
 ## Running this app:
 
 1. Fork and clone this repo
 2. `npm install`
 3. Create a postgress database named MHIAJ
 4. Change the database synchronisation to {force:true} on line 24 in db/models/index.js
-5. Run 'node seed' from the command line
+5. Run 'node seed.js' from the command line
 6. Change the database synchronisation to {force:false} on line 24 in db/models/index.js again
 5. Start the build process with: `npm run build-watch`
 6. In another terminal, start your app with `npm start`

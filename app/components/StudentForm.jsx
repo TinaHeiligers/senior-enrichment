@@ -1,10 +1,7 @@
-//will be a form
 import React from 'react';
-import {Link} from 'react-router';
 
 export default function StudentForm (props) {
   //methods passed down from container to handle form events
-  //TODO: define these
   const handleFirstNameChange = props.handleFirstNameChange;
   const handleLastNameChange = props.handleLastNameChange;
   const handleEmailChange = props.handleEmailChange;
@@ -25,75 +22,72 @@ export default function StudentForm (props) {
         <fieldset>
           <legend>{ formTitle }</legend>
           { warning && <div className="alert alert-warning">{warning}</div> }
-            <div className="form-group">
-              <label className="col-xs-2 control-label">First Name</label>
-              <div className="col-xs-10">
-                <input
-                  className="form-control"
-                  name="firstName"
-                  placeholder="First Name"
-                  type="text"
-                  onChange={handleFirstNameChange}
-                  value={firstName}
-                />
-              </div>
-            </div>
-            <div className="form-group">
-              <label className="col-xs-2 control-label">Last Name</label>
-              <div className="col-xs-10">
-                <input
-                  className="form-control"
-                  name="lastName"
-                  placeholder="Last Name"
-                  type="text"
-                  onChange={handleLastNameChange}
-                  value={lastName}
-                />
-              </div>
-            </div>
-            <div className="form-group">
-              <label className="col-xs-2 control-label">Email</label>
-              <div className="col-xs-10">
-                <input
-                  className="form-control"
-                  name="email"
-                  placeholder="e.g. email@address.com"
-                  type="text"
-                  onChange={handleEmailChange}
-                  value={email}
-                />
-              </div>
-            </div>
-          {/*ADDING A CAMPUS DROPDOWN LIST FOR A STUDENT*/}
-            <div className="form-group">
-            <label className="col-xs-2 control-label">Campus</label>
+          <div className="form-group">
+            <label className="col-xs-2 control-label">First Name</label>
             <div className="col-xs-10">
-              <select
+              <input
                 className="form-control"
-                name="campus"
-                value={campusId}
-                onChange={handleCampusChange}>
-                <option key='0' value=''>{campusId || 'None'}</option>
-                {
-                  campuses && campuses.map(campus => (
-                    <option key={campus.id} value={campus.id} >{campus.name}</option>
-                  ))
-                }
-              </select>
+                name="firstName"
+                placeholder="First Name"
+                type="text"
+                onChange={handleFirstNameChange}
+                value={firstName}
+              />
             </div>
           </div>
-        {/*END OF ADDING A CAMPUS DROPDOWN LIST FOR A STUDENT*/}
           <div className="form-group">
-              <div className="col-xs-10 col-xs-offset-2">
-                <button
-                  type="submit"
-                  className="btn btn-success"
-                  disabled={!!warning || !firstName && !lastName}>Save</button>
-              </div>
+            <label className="col-xs-2 control-label">Last Name</label>
+            <div className="col-xs-10">
+              <input
+                className="form-control"
+                name="lastName"
+                placeholder="Last Name"
+                type="text"
+                onChange={handleLastNameChange}
+                value={lastName}
+              />
             </div>
-          </fieldset>
+          </div>
+          <div className="form-group">
+            <label className="col-xs-2 control-label">Email</label>
+            <div className="col-xs-10">
+              <input
+                className="form-control"
+                name="email"
+                placeholder="e.g. email@address.com"
+                type="text"
+                onChange={handleEmailChange}
+                value={email}
+              />
+            </div>
+          </div>
+          <div className="form-group">
+          <label className="col-xs-2 control-label">Campus</label>
+          <div className="col-xs-10">
+            <select
+              className="form-control"
+              name="campus"
+              value={campusId}
+              onChange={handleCampusChange}>
+              <option key="0" value="">None</option>
+              {
+                campuses && campuses.map(campus => (
+                  <option key={campus.id} value={campus.id} >{campus.name}</option>
+                ))
+              }
+            </select>
+          </div>
+        </div>
+        <div className="form-group">
+            <div className="col-xs-10 col-xs-offset-2">
+              <button
+                type="submit"
+                className="btn btn-success"
+                disabled={!!warning || !firstName && !lastName}>Save</button>
+            </div>
+          </div>
+        </fieldset>
       </form>
     </div>
   );
 }
-

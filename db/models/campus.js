@@ -20,4 +20,3 @@ module.exports = db.define('campus', {
     })
   }
 });
-

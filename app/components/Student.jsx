@@ -1,9 +1,8 @@
 //Start with single student view
 import React from 'react';
-import PropTypes from 'prop-types';
 import {Link} from 'react-router';
 
-export default function Student (props, state) {
+export default function Student(props) {
   //get data we need from props passed down by the CampusContainer
   const student = props.selectedStudent;
 
@@ -12,7 +11,7 @@ export default function Student (props, state) {
       <div className="centered">
         <h2>Student Details: </h2>
       </div>
-      <table className='table'>
+      <table className="table">
         <tbody>
           <tr>
             <td>First Name:</td><td>{student.firstName}</td>
