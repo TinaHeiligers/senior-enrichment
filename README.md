@@ -2,7 +2,7 @@
 
 I Made a Thing!
 
-![Home](https://www.evernote.com/shard/s306/sh/74508f24-c2e0-422f-bb64-5580f9fca89b/f68ce12b971b9b7a/res/d34d9033-2b92-48e6-b4ed-2b899de2e896/skitch.png)
+![Home](https://www.evernote.com/shard/s306/sh/124cecb6-a366-4391-8800-1c7b6e46a7b0/3e988e7a17d51900/res/3f576011-bb39-46ac-882b-0bb25ead093b/skitch.png)
 
 ![Campuses](https://www.evernote.com/shard/s306/sh/94903e51-ac6b-4fd5-9c5c-6df778daf30c/b24b3f70ae234fd4/res/09799f2a-c77c-4702-aef3-fed67915cb71/skitch.png)
 
