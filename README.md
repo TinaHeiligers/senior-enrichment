@@ -98,7 +98,7 @@ DELETE
 OTHER
 - DONE: move new student, new campus buttons off navbar into student list/campus list
 - DONE: styling (forms, buttons, button placement)
-- TODO: Param for campus
+- DONE: Params
 - DONE: split routes into separate files
 - TODO: tests
 - TODO: dry New/Edit container using base class
