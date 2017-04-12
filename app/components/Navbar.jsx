@@ -13,16 +13,6 @@ export default function Navbar () {
         <ul className="nav navbar-nav navbar-right">
           <li><Link to='/campuses'>CAMPUSES</Link></li>
           <li><Link to='/students'>STUDENTS</Link></li>
-          <li>
-            <Link className="btn btn-primary" to="/new-campus">
-            <span className="glyphicon glyphicon-plus"></span> NEW CAMPUS
-          </Link>
-          </li>
-          <li>
-            <Link className="btn btn-primary" to="/new-student">
-              <span className="glyphicon glyphicon-plus"></span> NEW STUDENT
-            </Link>
-          </li>
         </ul>
       </div>
     </nav>

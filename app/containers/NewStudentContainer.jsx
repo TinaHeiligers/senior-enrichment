@@ -100,7 +100,7 @@ class NewStudentContainer extends Component {
 
 
     return (
-      <NewStudent
+      <StudentForm
         handleFirstNameChange={this.handleFirstNameChange}
         handleLastNameChange={this.handleLastNameChange}
         handleEmailChange={this.handleEmailChange}

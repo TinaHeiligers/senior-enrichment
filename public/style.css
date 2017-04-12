@@ -71,3 +71,8 @@ td {
 .stats {
   font-size: 2em;
 }
+.add-new {
+  float: right;
+  position: relative;
+  padding: 5px;
+}

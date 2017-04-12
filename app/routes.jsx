@@ -66,12 +66,12 @@ export default function Root () {
           <Route path="/campuses/:campusId/students/add" component={CampusStudentAddContainer}/>
           <Route path="/students" component={StudentsContainer} />
           <Route path="/students/:studentId" component={StudentContainer} onEnter={onStudentEnter} />
-            <Route path="/campuses/:campusId/edit" component={EditCampusContainer} />
-            <Route path="/students/:studentId/edit" component={EditStudentContainer} />
+          <Route path="/campuses/:campusId/edit" component={EditCampusContainer} />
+          <Route path="/students/:studentId/edit" component={EditStudentContainer} />
+          <Route path="/new-campus" component={NewCampusContainer} />
+          <Route path="/new-student" component={NewStudentContainer} />
           <IndexRedirect to="/home"/>
         </Route>
-        <Route path="/new-campus" component={NewCampusContainer} />
-        <Route path="/new-student" component={NewStudentContainer} />
       </Router>
     </Provider>
     )

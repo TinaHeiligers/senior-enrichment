@@ -6,12 +6,15 @@ export default function Students (props, state) {
   const deleteOne = props.deleteOne;
   return(
        <table className='table'>
+
          <thead>
           <tr>
             <th><h3>FirstName</h3></th>
             <th><h3>LastName</h3></th>
             <th><h3>Campus</h3></th>
-            <th></th>
+            <th><Link className="btn btn-success add-new" to="/new-student">
+              <span className="glyphicon glyphicon-plus"></span> Add Student
+            </Link></th>
           </tr>
          </thead>
          <tbody>
@@ -26,7 +29,6 @@ export default function Students (props, state) {
                 <button className="btn btn-danger" onClick={() => deleteOne(student.id)}>Delete</button>
               </td>
             </tr>
-
          ))}
          </tbody>
        </table>
