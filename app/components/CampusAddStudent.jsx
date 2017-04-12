@@ -25,7 +25,7 @@ export default function CampusAddStudent (props) {
                   name="student"
                   value={studentId}
                   onChange={handleStudentChange}>
-                  <option key={studentId} value='' ></option>
+                  <option key={studentId} value=''>select one</option>
                 {
                 students && students.map(student => (
                   <option key={student.id} value={student.id} >{student.firstName} {student.lastName}</option>

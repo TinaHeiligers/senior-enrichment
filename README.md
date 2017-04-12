@@ -97,11 +97,11 @@ DELETE
 ```
 OTHER
 - DONE: move new student, new campus buttons off navbar into student list/campus list
-- TODO: adding student to campus, filter out students already assigned to the campus
 - DONE: styling (forms, buttons, button placement)
 - TODO: Param for campus
-- TODO: split routes into separate files
+- DONE: split routes into separate files
 - TODO: tests
+- TODO: dry New/Edit container using base class
 ```
 
 ## Evaluation
