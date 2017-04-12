@@ -2,25 +2,25 @@
 
 I Made a Thing!
 
-![Home](https://www.evernote.com/l/ATJ0UI8kwuBCL7tkVYD5_Kib9ozhK5cbm3o)
+![Home](https://www.evernote.com/shard/s306/sh/74508f24-c2e0-422f-bb64-5580f9fca89b/f68ce12b971b9b7a/res/d34d9033-2b92-48e6-b4ed-2b899de2e896/skitch.png)
 
-![Campuses](https://www.evernote.com/l/ATKUkD5RrGtP1Zxcbfd42vMMsks_cK4jT9Q)
+![Campuses](https://www.evernote.com/shard/s306/sh/94903e51-ac6b-4fd5-9c5c-6df778daf30c/b24b3f70ae234fd4/res/09799f2a-c77c-4702-aef3-fed67915cb71/skitch.png)
 
-![Students](https://www.evernote.com/l/ATINYsoi0WtDRqj6RFIl_AknTjH40O7-d7s)
+![Students](https://www.evernote.com/shard/s306/sh/0d62ca22-d16b-4346-a8fa-445225fc0927/4e31f8d0eefe77bb/res/23e79fa3-fd33-4d78-9377-8a3a1b1832e3/skitch.png)
 
-![View Campus](https://www.evernote.com/l/ATISeCaG0mtJYorqbwAlma-n1gN8wFwidPU)
+![View Campus](https://www.evernote.com/shard/s306/sh/12782686-d26b-4962-8aea-6f002599afa7/d6037cc05c2274f5/res/5590518e-78ad-4313-a501-f331de72b5b4/skitch.png)
 
-![Edit Campus](https://www.evernote.com/l/ATJOYCYCvhtIgrVua0B4kue6RMQhg0gIkD8)
+![Edit Campus](https://www.evernote.com/shard/s306/sh/4e602602-be1b-4882-b56e-6b407892e7ba/44c421834808903f/res/f1dda45a-2650-41f4-ae9c-2a3a4ef985ef/skitch.png)
 
-![Add Campus](https://www.evernote.com/l/ATJ-5HkPgmVCD4Gr_1TA7YAxk_ZgAMSzuEA)
+![Add Campus](https://www.evernote.com/shard/s306/sh/7ee4790f-8265-420f-81ab-ff54c0ed8031/93f66000c4b3b840/res/3d233b8e-d650-43c9-9b11-a67ed5c6c063/skitch.png)
 
-![Add Student to Campus](https://www.evernote.com/l/ATIPSn_fim5BG4KvEZ47bcwd-anS-23kUek)
+![Add Student to Campus](https://www.evernote.com/shard/s306/sh/0f4a7fdf-8a6e-411b-82af-119e3b6dcc1d/f9a9d2fb6de451e9/res/9f0d0027-8d5e-4c13-9931-6125d1d96550/skitch.png)
 
-![View Student](https://www.evernote.com/l/ATIup56_rfhDgpQlH5poReWleszY3znHiYk)
+![View Student](https://www.evernote.com/shard/s306/sh/2ea79ebf-adf8-4382-9425-1f9a6845e5a5/7accd8df39c78989/res/2052dd32-2cf2-4cbb-824c-a592473b6efd/skitch.png)
 
-![Edit Student](https://www.evernote.com/l/ATKNNFpyztpMpLzBydzopZ15oClUPo0jKk0)
+![Edit Student](https://www.evernote.com/shard/s306/sh/8d345a72-ceda-4ca4-bcc1-c9dce8a59d79/a029543e8d232a4d/res/879abb79-7eb6-413a-8fde-886869caef85/skitch.png)
 
-![New Student](https://www.evernote.com/l/ATLTDdCNxsJP9KS7IYmLWag_Feu94Zu5r9A)
+![Add Student](https://www.evernote.com/shard/s306/sh/d30dd08d-c6c2-4ff4-a4bb-21898b59a83f/15ebbde19bb9afd0/res/1249d7ff-52e7-4820-b09b-6e67144cbfee/skitch.png)
 
 ## Running this app:
 
