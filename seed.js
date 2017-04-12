@@ -1,4 +1,4 @@
-//this file ain't working: db is undefined
+
 const {db} = require('./db/index')
     , {Student, Campus} = require('./db/models')
     , Promise = require('bluebird')

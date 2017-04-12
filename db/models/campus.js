@@ -1,15 +1,15 @@
 'use strict';
-var Sequelize = require('sequelize')
-var db = require('../index.js')
 
+var Sequelize = require('sequelize');
+var db = require('../index.js');
 
 module.exports = db.define('campus', {
   name: {
-  	type: Sequelize.STRING,
-  	allowNul: false
+    type: Sequelize.STRING,
+    allowNul: false
   },
   image: {
-  	type: Sequelize.STRING
+    type: Sequelize.STRING
   }
 }, {
   scopes: {

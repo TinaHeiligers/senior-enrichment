@@ -1,10 +1,8 @@
 //Start with single campus view
 import React from 'react';
-import PropTypes from 'prop-types';
-import StudentsContainer from '../containers/StudentsContainer';//will reuse this container but with a filtered list of students for just the current campus
 import { Link } from 'react-router';
 
-export default function Campus (props, state) {
+export default function Campus(props) {
   //get data we need from props passed down by the CampusContainer
   //get a list of students for the CURRENT campus here
   const campus = props.selectedCampus;
@@ -14,13 +12,13 @@ export default function Campus (props, state) {
   return (
     <div>
       <div className="centered">
-          <h2>{ campus.name }</h2>
-          <h4>{`Number of Students: ${students.length}`}</h4>
-          <img src={ campus.image } className="campus img-thumbnail"/>
-          <Link className="btn btn-default campus-edit" to={`/campuses/${campus.id}/edit`}>Edit</Link>
+        <h2>{ campus.name }</h2>
+        <h4>{`Number of Students: ${students.length}`}</h4>
+        <img src={ campus.image } className="campus img-thumbnail" />
+        <Link className="btn btn-default campus-edit" to={`/campuses/${campus.id}/edit`}>Edit</Link>
       </div>
-      <h2>Students: <Link className="btn btn-success add-student-to-campus" to={`/campuses/${campus.id}/students/add`}>Add A Student:</Link></h2>
-      <table className='table'>{/* TODO: render the table conditionally if there are students for a campus*/}
+      <h2>Students: <Link className="btn btn-success add-student-to-campus" to={`/campuses/${campus.id}/students/add`}>Add A Student</Link></h2>
+      <table className="table">
         <thead>
           <tr>
             <th><h3>First Name</h3></th>
@@ -38,7 +36,6 @@ export default function Campus (props, state) {
                 <span>Remove</span></button>
               </td>
             </tr>)) : `No students assigned to ${campus.name} yet.`
-
           }
         </tbody>
       </table>
