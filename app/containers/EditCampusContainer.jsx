@@ -3,9 +3,6 @@ import CampusForm from '../components/CampusForm';
 import { editCampus } from '../action-creators/campuses';
 import { connect } from 'react-redux';
 
-//modify this container to double as an edit container as well.? Or create a new container
-//if so, I need to pass down the currently selected campus to the whole form
-//get the currently selected campus from state.
 const mapStateToProps = (state) => {
   return {
     campus: state.campuses.selected,
@@ -14,7 +11,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    editOne (campusName, campusImage) {//here I have to pass the whole instance of the campus in to update it.currently only passing in the name
+    editOne (campusName, campusImage) {
       dispatch(editCampus(campusName, campusImage))
     }
   };
@@ -54,7 +51,7 @@ class EditCampusContainer extends Component {
 
   handleSubmit (evt) {
     evt.preventDefault();//preventing bubling up
-    this.props.editOne(this.state.name, this.state.image);//currently uses name and image for the campus
+    this.props.editOne(this.state.name, this.state.image);
   }
 
   render () {

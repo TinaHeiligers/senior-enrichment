@@ -60,7 +60,7 @@ Use at least sequelize, express, react, and redux when creating this app. You ca
       from campus to the campus id, then to adding the student
   - DONE * can create a student
 
-  TODO * can edit a campus's info: PUT to '/campuses/:campusId' - campus info such as name
+  DONE * can edit a campus's info: PUT to '/campuses/:campusId' - campus info such as name
   TODO * can edit a student's info, including the campus that student is assigned to
   DONE * can delete a student
   DONE * can delete a campus

@@ -19,15 +19,14 @@ import StudentContainer from './containers/StudentContainer';
 import NewStudentContainer from './containers/NewStudentContainer';
 import EditStudentContainer from './containers/EditStudentContainer';
 
-import Campuses from './components/Campuses';
-import Campus from './components/Campus';
-import CampusForm from './components/CampusForm';
-import CampusAddStudent from './components/CampusAddStudent';
-// import EditCampus from './components/EditCampus';
+// import Campuses from './components/Campuses';
+// import Campus from './components/Campus';
+// import CampusForm from './components/CampusForm';
+// import CampusAddStudent from './components/CampusAddStudent';
 
-import Students from './components/Students';
-import Student from './components/Student';
-import NewStudent from './components/NewStudent';
+// import Students from './components/Students';
+// import Student from './components/Student';
+// import StudentForm from './components/StudentForm';
 
 import {receiveCampuses, getCampusById} from './action-creators/campuses';
 import {receiveStudents, getStudentById} from './action-creators/students';
@@ -66,7 +65,7 @@ export default function Root () {
           <Route path="/students" component={StudentsContainer} />
           <Route path="/students/:studentId" component={StudentContainer} onEnter={onStudentEnter} />
             <Route path="/campuses/:campusId/edit" component={EditCampusContainer} />
-            <Route path="/edit" component={EditStudentContainer} />
+            <Route path="/students/:studentId/edit" component={EditStudentContainer} />
           <IndexRedirect to="/campuses"/>
         </Route>
         <Route path="/new-campus" component={NewCampusContainer} />

@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
-import NewStudent from '../components/NewStudent';
-import { addNewStudent } from '../action-creators/students'; //TODO: define the action creator to operate on a new campus action;
+import StudentForm from '../components/StudentForm';
+import { editStudent } from '../action-creators/students';
 import { connect } from 'react-redux';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
+    student: state.students.selected,
     campuses: state.campuses.list,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    //have two items to pass into adding a new campus: the name and the image
-    addNewStudent (studentFirstName, studentLastName, studentEmail, studentCampus) {
-      dispatch(addNewStudent(studentFirstName, studentLastName, studentEmail, studentCampus));//dispatching the action to add a new campus
+    editOne (studentFirstName, studentLastName, studentEmail, studentCampus) {
+      dispatch(editStudent(studentFirstName, studentLastName, studentEmail, studentCampus))
     }
   };
 };
@@ -23,10 +23,10 @@ class EditStudentContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: '',
-      lastName: '',
-      email: '',
-      campusId: '',
+      firstName: props.student.firstName,
+      lastName: props.student.lastName,
+      email: props.student.email,
+      campusId: props.student.campusId,
       dirty: false
     };
 
@@ -74,15 +74,7 @@ class EditStudentContainer extends Component {
 
   handleSubmit (evt) {
     evt.preventDefault();//preventing bubling up
-    this.props.addNewStudent(this.state.firstName, this.state.lastName, this.state.email, this.state.campusId);//submit new items to props
-    //resetting the form fields after submission
-    this.setState({
-      firstName: '',
-      lastName: '',
-      email: '',
-      campusId: '',
-      dirty: false
-    });
+    this.props.editOne(this.state.firstName, this.state.lastName, this.state.email, this.state.campusId);//submit new items to props
   }
 
   render () {
@@ -98,9 +90,8 @@ class EditStudentContainer extends Component {
     else if (firstName.length > 16 ) warning = 'The student\'s first name is too long (limit: 16 characters)';
     else if (lastName.length > 16 ) warning = 'The student\'s last name is too long (limit: 16 characters)';
 
-
     return (
-      <NewStudent
+      <StudentForm
         handleFirstNameChange={this.handleFirstNameChange}
         handleLastNameChange={this.handleLastNameChange}
         handleEmailChange={this.handleEmailChange}
@@ -112,12 +103,13 @@ class EditStudentContainer extends Component {
         campusId={campusId}
         campuses={campuses}
         warning={warning}
+        formTitle="Edit Student"
       />
     );
   }
 }
 
 export default connect(
-  mapStateToProps,//no mapping state to props
+  mapStateToProps,
   mapDispatchToProps
 )(EditStudentContainer);

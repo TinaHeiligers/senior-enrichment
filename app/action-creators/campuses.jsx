@@ -64,20 +64,16 @@ export const addNewCampus = (campusName, campusImage) => {
 };
 
 // dispatch(editCampus(campus.name, campus.image))
-export const editCampus = (campusName, campusImage) => {//currently only receiving the campus name and campus image
+export const editCampus = (campusName, campusImage) => {
   return (dispatch, getState) => {
 
     const selectedCampus = getState().campuses.selected;
-    // console.log("IN EDIT CAMPUS ACTION-CREATOR: ", selectedCampus.id)
-    // console.log("PASSING IN PARAMETERS TO ACTION-CREATOR: ", campusName, campusImage)
     return axios.put(`/api/campuses/${selectedCampus.id}`, { name: campusName, image: campusImage })
       .then(res => res.data)
       .then(campus => {
         //create a new campus list by replacing the old one with the edited campus
         const campuses = getState().campuses.list;
-
         const newListOfCampuses = campuses.map((cam) => { return cam.id === campus.id ? campus : cam});
-        console.log("new list of campuses using map in axios call: ", newListOfCampuses);
         //now dispatch receiving the campuses
         dispatch(receiveCampuses(newListOfCampuses));
         //rerender the list of campuses

@@ -63,15 +63,20 @@ export const deleteStudent = (studentId) => {
 
 }
 //action creator for updating a student
-export const editStudent = (student) => {
+export const editStudent = (studentFirstName, studentLastName, studentEmail, studentCampus) => {
   return (dispatch, getState) => {
-    //I'm assuming that I can pass in a student item here with updated details, grabbing original ones if they have remained unchanged
-    // return axios.put(`/api/students/${student.id}`, { firstName: studentFirstName, lastName: studentLastName, email: studentEmail, campusId: studentCampus })
-    //   .then(res => res.data)
-    //   .then(updatedStudent => {
-    //     const updatedStudent = getState().selectedStudent
-    //     dispatch(receiveStudent(updatedStudent));
-    //     hashHistory.push(`/students/${updatedStudent.id}`);
-    //   });
+    //get the current student's id
+    const selectedstudent = getState().students.selected;
+    return axios.put(`/api/students/${selectedstudent.id}`, { firstName: studentFirstName, lastName: studentLastName, email: studentEmail, campusId: studentCampus })
+      .then(res => res.data)
+      .then(student => {
+        //create a new student list by replacing the old one with the edited student
+        const students = getState().students.list;
+        const newListOfstudents = students.map((std) => { return std.id === student.id ? student : std});
+        //now dispatch receiving the studentes
+        dispatch(receiveStudents(newListOfstudents));
+        //rerender the list of studentes
+        hashHistory.push(`/students/${student.id}`);
+      });
   };
 };

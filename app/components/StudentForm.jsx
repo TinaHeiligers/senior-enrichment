@@ -2,7 +2,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 
-export default function NewStudent (props) {
+export default function StudentForm (props) {
   //methods passed down from container to handle form events
   //TODO: define these
   const handleFirstNameChange = props.handleFirstNameChange;
@@ -15,16 +15,15 @@ export default function NewStudent (props) {
   const lastName = props.lastName;
   const email = props.email;
   const campusId = props.campusId;
-
   const campuses = props.campuses;
-
   const warning = props.warning;
+  const formTitle = props.formTitle;
 
   return (
     <div>
       <form className="form-horizontal" onSubmit={handleSubmit}>
         <fieldset>
-          <legend>New Student</legend>
+          <legend>{ formTitle }</legend>
           { warning && <div className="alert alert-warning">{warning}</div> }
             <div className="form-group">
               <label className="col-xs-2 control-label">First Name</label>
@@ -74,7 +73,7 @@ export default function NewStudent (props) {
                 name="campus"
                 value={campusId}
                 onChange={handleCampusChange}>
-                <option key='0' value=''>None</option>
+                <option key='0' value=''>{campusId || 'None'}</option>
                 {
                   campuses && campuses.map(campus => (
                     <option key={campus.id} value={campus.id} >{campus.name}</option>
@@ -89,8 +88,7 @@ export default function NewStudent (props) {
                 <button
                   type="submit"
                   className="btn btn-success"
-                  disabled={!!warning || !firstName && !lastName}>Add Student</button>
-
+                  disabled={!!warning || !firstName && !lastName}>Save</button>
               </div>
             </div>
           </fieldset>

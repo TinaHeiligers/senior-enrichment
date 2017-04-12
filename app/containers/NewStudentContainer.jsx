@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NewStudent from '../components/NewStudent';
+import StudentForm from '../components/StudentForm';
 import { addNewStudent } from '../action-creators/students'; //TODO: define the action creator to operate on a new campus action;
 import { connect } from 'react-redux';
 
@@ -112,6 +112,7 @@ class NewStudentContainer extends Component {
         campusId={campusId}
         campuses={campuses}
         warning={warning}
+        formTitle="Add Student"
       />
     );
   }
